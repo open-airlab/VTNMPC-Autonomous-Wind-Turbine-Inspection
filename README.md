@@ -24,7 +24,7 @@ and place it inside the Wind-Turbine-Inspection folder
 Clone the WTI_catkin inside the catkin_ws
 
 ```bash
-cd catkin_ws
+cd catkin_ws/src
 git clone git@github.com:abdelhakim96/WTI_catkin.git
 ```
 Switch to the most recent branch using git checkout
