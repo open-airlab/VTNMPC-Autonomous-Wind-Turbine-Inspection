@@ -9,7 +9,7 @@ This repository contains the code and simulation files for the submitted paper t
 
 Create SSH key for computer
 
-Follow the following tutorial 
+Follow the following guide
 [Create SSH key](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
 
 Clone directory in the home folder
