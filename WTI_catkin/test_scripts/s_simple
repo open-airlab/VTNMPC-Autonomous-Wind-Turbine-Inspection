@@ -1,0 +1,17 @@
+syms psi  px py x y
+R=[cos(psi) -sin(psi); sin(theta) cos(theta)];
+
+p_w=[px; py];
+
+x_w= [x y];
+
+b_1=[1 0];
+
+
+b_w=R*b_1;
+
+
+n_w=p_w-x_w;
+n_w=n_w/norm(n_w) ;
+
+s=b_w(1)*n_w(1)+b_w(2)*n_w(2);

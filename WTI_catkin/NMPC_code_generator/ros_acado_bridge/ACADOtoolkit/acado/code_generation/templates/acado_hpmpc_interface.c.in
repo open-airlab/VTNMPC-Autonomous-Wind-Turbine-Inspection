@@ -1,0 +1,145 @@
+/**************************************************************************************************
+*                                                                                                 *
+* Author: Gianluca Frison, giaf (at) dtu.dk                                                       *
+*                                                                                                 *
+**************************************************************************************************/
+
+/* ACADO auto-generated header */
+#include "@MODULE_NAME@_common.h"
+
+// take problem size from ACADO macros
+#define NX @MODULE_PREFIX@_NX
+#define NU @MODULE_PREFIX@_NU
+#define NN @MODULE_PREFIX@_N
+
+// fix number of constraints
+#define NB (NU+NX) // number of box constraints
+#define NG 0       // number of general constraints
+
+// include header containing work space size
+#include "hpmpc/c_interface.h"
+
+// number of iterations of IP method
+#define K_MAX @MAX_ITER@
+
+// tolerance in the duality measure
+#define MU_TOL 1e-6 // TODO maybe something like @MU_TOL@ ??????????????????????????????????????????
+
+// single or double precision: 0 - double, 1 - single TODO single precision not supported atm
+#define PREC 0 //@PRECISION@
+
+// Debug flag TODO
+#define PC_DEBUG @PRINT_LEVEL@
+
+
+
+int @MODULE_NAME@_hpmpc_ip_wrapper( real_t* A, real_t* B, real_t* b, 
+                            real_t* Q, real_t* Qf, real_t* S, real_t* R, 
+                            real_t* q, real_t* qf, real_t* r, 
+                            real_t* lb, real_t* ub, 
+                            real_t* x, real_t* u,
+                            real_t* lambda, real_t* mu, real_t* slacks,
+                            int* nIt )
+{
+
+	// loop indeces
+	int ii, jj;
+	
+	// problem size
+	int N  = NN; // horizon length
+	int nx = NX; // number of states
+	int nu = NU; // number of inputs
+	int nb = NB; // number of two-sided box constraints
+	int ng = NG; // number of two-sided general constraints
+
+	int k_max = K_MAX; // maximum number of IPM iterations
+	double mu_tol = MU_TOL; // minimum tolerance on the duality measure to exit IPM
+	double mu0 = 0; // initial value for the pair-wise products lam*t // TODO add to the wrapper
+	char prec; // double or single precision computations 
+		if(PREC==0)
+			prec = 'd';
+		else
+			prec = 's';
+
+	double *dummy; // dummy for matrices of general constraints
+	
+	// work space
+	static real_t work0[HPMPC_IP_MPC_DP_WORK_SPACE]; // IPM work space
+	static real_t stat[5*K_MAX]; // statistics from the IPM routine
+
+	// upper and lower bounds in the proper format
+	static real_t llb[(NN+1)*(NB+NG)];
+	static real_t uub[(NN+1)*(NB+NG)];
+	for(ii=0; ii<N; ii++)
+		{
+		// box constraints on u
+		for(jj=0; jj<nu; jj++)
+			{
+			llb[ii*(nb+ng)+jj] = lb[ii*nu+jj];
+			uub[ii*(nb+ng)+jj] = ub[ii*nu+jj];
+			}
+		// box constraints on x
+		for(jj=0; jj<nx; jj++)
+			{
+			llb[(ii+1)*(nb+ng)+nu+jj] = lb[N*nu+ii*nx+jj];
+			uub[(ii+1)*(nb+ng)+nu+jj] = ub[N*nu+ii*nx+jj];
+			}
+		}
+
+	// compute residuals on exit of IPM
+	int compute_res = 0; // TODO change to 1 if infinity norm of residuals is needed
+	static real_t inf_norm_res[4];
+
+	// compute lagrangian multipliers
+	int compute_mult = 1; // compute lagrangian multipliers and slack variables
+	compute_mult = compute_mult || compute_res;
+	static real_t pi[(NN+1)*NX];
+	static real_t lam[(NN+1)*(2*NB+2*NG)];
+	static real_t t[(NN+1)*(2*NB+2*NG)];
+
+	// call the high-level C interface in HPMPC
+	int hpmpc_status =  c_order_ip_hard_mpc(
+		nIt, k_max, mu0, mu_tol, prec,
+		N, nx, nu, nb, ng, A, B, b, Q, Qf, S, R, q, qf, r, dummy, dummy,
+		llb, uub, x, u, work0, stat, compute_res, inf_norm_res, compute_mult, pi, lam, t);
+
+	// multipliers in the proper format
+	// multipliers of equality constraints
+	for(ii=0; ii<N; ii++)
+		for(jj=0; jj<nx; jj++)
+			lambda[ii*nx+jj] = pi[(ii+1)*nx+jj];
+	// multipliers of inequality constraints
+	for(ii=0; ii<N; ii++)
+		{
+		for(jj=0; jj<nu; jj++)
+			{
+			mu[ii*nu+jj]           = lam[ii*(2*nb+2*ng)+jj];       // lbu
+			mu[N*nu+N*nx+ii*nu+jj] = lam[ii*(2*nb+2*ng)+nb+ng+jj]; // ubu
+			}
+		for(jj=0; jj<nx; jj++)
+			{
+			mu[N*nu+ii*nx+jj]           = lam[(ii+1)*(2*nb+2*ng)+nu+jj];       // lbx
+			mu[N*nu+N*nx+N*nu+ii*nx+jj] = lam[(ii+1)*(2*nb+2*ng)+nb+ng+nu+jj]; // ubx
+			}
+		}
+	// slack variables of inequality constraints
+	for(ii=0; ii<N; ii++)
+		{
+		for(jj=0; jj<nu; jj++)
+			{
+			slacks[ii*nu+jj]           = t[ii*(2*nb+2*ng)+jj];       // lbu
+			slacks[N*nu+N*nx+ii*nu+jj] = t[ii*(2*nb+2*ng)+nb+ng+jj]; // ubu
+			}
+		for(jj=0; jj<nx; jj++)
+			{
+			slacks[N*nu+ii*nx+jj]           = t[(ii+1)*(2*nb+2*ng)+nu+jj];       // lbx
+			slacks[N*nu+N*nx+N*nu+ii*nx+jj] = t[(ii+1)*(2*nb+2*ng)+nb+ng+nu+jj]; // ubx
+			}
+		}
+
+	
+
+	// return
+	return hpmpc_status;
+
+}

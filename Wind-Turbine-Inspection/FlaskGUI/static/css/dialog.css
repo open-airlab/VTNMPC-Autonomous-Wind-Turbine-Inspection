@@ -1,0 +1,11 @@
+.dialog {
+    max-width: 60%;
+    min-width: 50%;
+
+}
+
+input {
+    /*text-align: center;*/
+    border: none;
+    background: transparent;
+}

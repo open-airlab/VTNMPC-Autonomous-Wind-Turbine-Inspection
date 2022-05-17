@@ -1,0 +1,19 @@
+<launch>
+    <node name="PAMPC" pkg="PAMPC" type="PAMPC" output="screen" />
+
+    <param name="verbose" type="bool" value="true" /> <!-- Parameter to display NMPC messages.-->
+    <param name="yaw_control" type="bool" value="true" /> <!-- Parameter to let NMPC control yaw angle.-->
+    <param name="online_ref_yaw" type="bool" value="true" /> <!-- Parameter to utilize online reference for yaw angle. -->
+    <param name="use_dist_estimates" type="bool" value="false" /> <!-- Parameter to let NMPC use disturbace estimates.-->
+    <param name="mocap_topic_part" type="string" value="mocap" /> <!-- Parameter to specify part of the topic name for localization data. -->
+    <param name="dist_Fx_predInit_topic" type="string" value="gp_disturb_reg/predInit/x" /> <!-- Parameter to specify the topic name for dist_Fx_predInit. -->
+    <param name="dist_Fy_predInit_topic" type="string" value="gp_disturb_reg/predInit/y" /> <!-- Parameter to specify the topic name for dist_Fy_predInit. -->
+    <param name="dist_Fz_predInit_topic" type="string" value="gp_disturb_reg/predInit/z" /> <!-- Parameter to specify the topic name for dist_Fz_predInit. -->
+    <param name="dist_Fx_data_topic" type="string" value="gp_disturb_reg/mu/x" /> <!-- Parameter to specify the topic name for dist_Fx_data. -->
+    <param name="dist_Fy_data_topic" type="string" value="gp_disturb_reg/mu/y" /> <!-- Parameter to specify the topic name for dist_Fy_data. -->
+    <param name="dist_Fz_data_topic" type="string" value="gp_disturb_reg/mu/z" /> <!-- Parameter to specify the topic name for dist_Fz_data. -->
+
+    <include file="$(find PAMPC)/launch/airframes/matrice_100_gazebo.xml" />
+
+
+</launch>

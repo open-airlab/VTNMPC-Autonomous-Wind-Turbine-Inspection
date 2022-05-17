@@ -1,0 +1,3 @@
+<launch>
+    <node name="mocap_bridge_gazebo" pkg="mocap" type="mocap_bridge_gazebo" output="screen" />
+</launch>

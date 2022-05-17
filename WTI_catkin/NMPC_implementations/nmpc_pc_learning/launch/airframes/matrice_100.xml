@@ -1,0 +1,21 @@
+<launch>
+    <!-- matrice 100 -->
+    <param name="min_Fz_scale" type="double" value="$(eval -0.2 *3.5*9.81)" /> <!-- Minimum for Fz scaling = factor*m*g. -->
+    <param name="max_Fz_scale" type="double" value="$(eval 2.4 *3.5*9.81)" /> <!-- Maximum for Fz scaling = factor*m*g. -->
+    <param name="W_Wn_factor" type="double" value="1.5" /> <!-- Factor for WN weights. -->
+    <param name="phi_ref" type="double" value="0.0" /> <!-- Reference for roll angle. -->
+    <param name="theta_ref" type="double" value="0.0" /> <!-- Reference for pitch angle. -->
+    <param name="psi_ref" type="double" value="0.0" /> <!-- Reference for yaw angle. -->
+    <!--param name="Fz_ref" type="double" value="$(eval 1*3.5*9.81)" /--> <!-- Reference for throttle. -->
+    <param name="Fz_ref" type="double" value="$(eval 0.45)" /> <!-- Scaled Reference for throttle. -->
+    <param name="W_x" type="double" value="20.0" /> <!-- Weight for x-position. -->
+    <param name="W_y" type="double" value="20.0" /> <!-- Weight for y-position. -->
+    <param name="W_z" type="double" value="30.0" /> <!-- Weight for z-position. -->
+    <param name="W_u" type="double" value="1.5" /> <!-- Weight for x-velocity. -->
+    <param name="W_v" type="double" value="1.5" /> <!-- Weight for y-velocity. -->
+    <param name="W_w" type="double" value="1.2" /> <!-- Weight for z-velocity. -->
+    <param name="W_phi" type="double" value="35.0" /> <!-- Weight for roll angle. -->
+    <param name="W_theta" type="double" value="35.0" /> <!-- Weight for pitch angle. -->
+    <param name="W_psi" type="double" value="80.0" /> <!-- Weight for yaw angle. -->
+    <param name="W_Fz" type="double" value="0.01" /> <!-- Weight for throttle. -->
+</launch>

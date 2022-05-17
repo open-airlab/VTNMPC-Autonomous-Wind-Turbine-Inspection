@@ -1,0 +1,13 @@
+<launch>
+    <node name="m100_trajectory" pkg="dji_m100_trajectory" type="m100_trajectory" output="screen" />
+    	<param name="lidar_topic" type="string" value="/teraranger_evo" />
+    	<!-- <param name="lidar_topic" type="string" value="/mavros/distance_sensor/lidarlite_pub" /> -->
+    	<param name="use_current_pos" type="bool" value="false" />
+    
+    <node name="dummyLidar" pkg="dji_m100_trajectory" type="dummyLidar" output="screen" />
+    	<param name="Llidar_topic" type="string" value="/teraranger_evo_l" />
+    	<param name="Clidar_topic" type="string" value="/teraranger_evo" />
+    	<param name="Rlidar_topic" type="string" value="/teraranger_evo_r" />
+
+    <node name="rqt_reconfigure" pkg="rqt_reconfigure" type="rqt_reconfigure" />
+</launch>

@@ -1,0 +1,406 @@
+README.md
+setup.py
+docs/__init__.py
+docs/conf.py
+docs/make_pdf.py
+docs/api/__init__.py
+py_wake/__init__.py
+py_wake/aep_calculator.py
+py_wake/flow_map.py
+py_wake/superposition_models.py
+py_wake.egg-info/PKG-INFO
+py_wake.egg-info/SOURCES.txt
+py_wake.egg-info/dependency_links.txt
+py_wake.egg-info/requires.txt
+py_wake.egg-info/top_level.txt
+py_wake.egg-info/zip-safe
+py_wake/deficit_models/__init__.py
+py_wake/deficit_models/deficit_model.py
+py_wake/deficit_models/fuga.py
+py_wake/deficit_models/gaussian.py
+py_wake/deficit_models/gcl.py
+py_wake/deficit_models/hybridinduction.py
+py_wake/deficit_models/no_wake.py
+py_wake/deficit_models/noj.py
+py_wake/deficit_models/rankinehalfbody.py
+py_wake/deficit_models/rathmann.py
+py_wake/deficit_models/selfsimilarity.py
+py_wake/deficit_models/vortexcylinder.py
+py_wake/deficit_models/vortexdipole.py
+py_wake/deflection_models/__init__.py
+py_wake/deflection_models/deflection_model.py
+py_wake/deflection_models/fuga_deflection.py
+py_wake/deflection_models/jimenez.py
+py_wake/examples/__init__.py
+py_wake/examples/compare_wake_models.py
+py_wake/examples/hornsrev1_example.py
+py_wake/examples/iea37_example.py
+py_wake/examples/noj_terrain_following.py
+py_wake/examples/data/__init__.py
+py_wake/examples/data/hornsrev1.py
+py_wake/examples/data/lillgrund.py
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 1   Height 200m   Flow inclination.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 1   Height 200m   Mean speed.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 1   Height 200m   Orographic speed.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 1   Height 200m   Orographic turn.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 1   Height 200m   Sector frequency.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 1   Height 200m   Turbulence intensity.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 1   Height 200m   Weibull-A.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 1   Height 200m   Weibull-k.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 1   Height 30m   Flow inclination.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 1   Height 30m   Mean speed.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 1   Height 30m   Orographic speed.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 1   Height 30m   Orographic turn.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 1   Height 30m   Sector frequency.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 1   Height 30m   Turbulence intensity.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 1   Height 30m   Weibull-A.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 1   Height 30m   Weibull-k.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 10   Height 200m   Flow inclination.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 10   Height 200m   Mean speed.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 10   Height 200m   Orographic speed.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 10   Height 200m   Orographic turn.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 10   Height 200m   Sector frequency.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 10   Height 200m   Turbulence intensity.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 10   Height 200m   Weibull-A.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 10   Height 200m   Weibull-k.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 10   Height 30m   Flow inclination.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 10   Height 30m   Mean speed.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 10   Height 30m   Orographic speed.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 10   Height 30m   Orographic turn.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 10   Height 30m   Sector frequency.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 10   Height 30m   Turbulence intensity.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 10   Height 30m   Weibull-A.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 10   Height 30m   Weibull-k.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 11   Height 200m   Flow inclination.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 11   Height 200m   Mean speed.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 11   Height 200m   Orographic speed.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 11   Height 200m   Orographic turn.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 11   Height 200m   Sector frequency.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 11   Height 200m   Turbulence intensity.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 11   Height 200m   Weibull-A.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 11   Height 200m   Weibull-k.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 11   Height 30m   Flow inclination.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 11   Height 30m   Mean speed.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 11   Height 30m   Orographic speed.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 11   Height 30m   Orographic turn.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 11   Height 30m   Sector frequency.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 11   Height 30m   Turbulence intensity.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 11   Height 30m   Weibull-A.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 11   Height 30m   Weibull-k.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 12   Height 200m   Flow inclination.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 12   Height 200m   Mean speed.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 12   Height 200m   Orographic speed.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 12   Height 200m   Orographic turn.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 12   Height 200m   Sector frequency.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 12   Height 200m   Turbulence intensity.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 12   Height 200m   Weibull-A.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 12   Height 200m   Weibull-k.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 12   Height 30m   Flow inclination.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 12   Height 30m   Mean speed.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 12   Height 30m   Orographic speed.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 12   Height 30m   Orographic turn.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 12   Height 30m   Sector frequency.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 12   Height 30m   Turbulence intensity.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 12   Height 30m   Weibull-A.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 12   Height 30m   Weibull-k.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 2   Height 200m   Flow inclination.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 2   Height 200m   Mean speed.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 2   Height 200m   Orographic speed.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 2   Height 200m   Orographic turn.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 2   Height 200m   Sector frequency.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 2   Height 200m   Turbulence intensity.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 2   Height 200m   Weibull-A.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 2   Height 200m   Weibull-k.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 2   Height 30m   Flow inclination.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 2   Height 30m   Mean speed.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 2   Height 30m   Orographic speed.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 2   Height 30m   Orographic turn.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 2   Height 30m   Sector frequency.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 2   Height 30m   Turbulence intensity.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 2   Height 30m   Weibull-A.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 2   Height 30m   Weibull-k.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 3   Height 200m   Flow inclination.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 3   Height 200m   Mean speed.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 3   Height 200m   Orographic speed.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 3   Height 200m   Orographic turn.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 3   Height 200m   Sector frequency.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 3   Height 200m   Turbulence intensity.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 3   Height 200m   Weibull-A.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 3   Height 200m   Weibull-k.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 3   Height 30m   Flow inclination.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 3   Height 30m   Mean speed.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 3   Height 30m   Orographic speed.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 3   Height 30m   Orographic turn.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 3   Height 30m   Sector frequency.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 3   Height 30m   Turbulence intensity.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 3   Height 30m   Weibull-A.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 3   Height 30m   Weibull-k.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 4   Height 200m   Flow inclination.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 4   Height 200m   Mean speed.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 4   Height 200m   Orographic speed.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 4   Height 200m   Orographic turn.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 4   Height 200m   Sector frequency.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 4   Height 200m   Turbulence intensity.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 4   Height 200m   Weibull-A.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 4   Height 200m   Weibull-k.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 4   Height 30m   Flow inclination.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 4   Height 30m   Mean speed.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 4   Height 30m   Orographic speed.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 4   Height 30m   Orographic turn.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 4   Height 30m   Sector frequency.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 4   Height 30m   Turbulence intensity.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 4   Height 30m   Weibull-A.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 4   Height 30m   Weibull-k.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 5   Height 200m   Flow inclination.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 5   Height 200m   Mean speed.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 5   Height 200m   Orographic speed.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 5   Height 200m   Orographic turn.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 5   Height 200m   Sector frequency.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 5   Height 200m   Turbulence intensity.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 5   Height 200m   Weibull-A.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 5   Height 200m   Weibull-k.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 5   Height 30m   Flow inclination.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 5   Height 30m   Mean speed.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 5   Height 30m   Orographic speed.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 5   Height 30m   Orographic turn.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 5   Height 30m   Sector frequency.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 5   Height 30m   Turbulence intensity.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 5   Height 30m   Weibull-A.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 5   Height 30m   Weibull-k.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 6   Height 200m   Flow inclination.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 6   Height 200m   Mean speed.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 6   Height 200m   Orographic speed.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 6   Height 200m   Orographic turn.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 6   Height 200m   Sector frequency.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 6   Height 200m   Turbulence intensity.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 6   Height 200m   Weibull-A.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 6   Height 200m   Weibull-k.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 6   Height 30m   Flow inclination.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 6   Height 30m   Mean speed.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 6   Height 30m   Orographic speed.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 6   Height 30m   Orographic turn.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 6   Height 30m   Sector frequency.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 6   Height 30m   Turbulence intensity.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 6   Height 30m   Weibull-A.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 6   Height 30m   Weibull-k.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 7   Height 200m   Flow inclination.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 7   Height 200m   Mean speed.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 7   Height 200m   Orographic speed.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 7   Height 200m   Orographic turn.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 7   Height 200m   Sector frequency.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 7   Height 200m   Turbulence intensity.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 7   Height 200m   Weibull-A.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 7   Height 200m   Weibull-k.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 7   Height 30m   Flow inclination.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 7   Height 30m   Mean speed.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 7   Height 30m   Orographic speed.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 7   Height 30m   Orographic turn.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 7   Height 30m   Sector frequency.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 7   Height 30m   Turbulence intensity.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 7   Height 30m   Weibull-A.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 7   Height 30m   Weibull-k.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 8   Height 200m   Flow inclination.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 8   Height 200m   Mean speed.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 8   Height 200m   Orographic speed.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 8   Height 200m   Orographic turn.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 8   Height 200m   Sector frequency.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 8   Height 200m   Turbulence intensity.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 8   Height 200m   Weibull-A.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 8   Height 200m   Weibull-k.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 8   Height 30m   Flow inclination.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 8   Height 30m   Mean speed.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 8   Height 30m   Orographic speed.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 8   Height 30m   Orographic turn.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 8   Height 30m   Sector frequency.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 8   Height 30m   Turbulence intensity.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 8   Height 30m   Weibull-A.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 8   Height 30m   Weibull-k.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 9   Height 200m   Flow inclination.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 9   Height 200m   Mean speed.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 9   Height 200m   Orographic speed.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 9   Height 200m   Orographic turn.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 9   Height 200m   Sector frequency.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 9   Height 200m   Turbulence intensity.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 9   Height 200m   Weibull-A.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 9   Height 200m   Weibull-k.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 9   Height 30m   Flow inclination.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 9   Height 30m   Mean speed.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 9   Height 30m   Orographic speed.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 9   Height 30m   Orographic turn.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 9   Height 30m   Sector frequency.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 9   Height 30m   Turbulence intensity.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 9   Height 30m   Weibull-A.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector 9   Height 30m   Weibull-k.grd
+py_wake/examples/data/ParqueFicticio/Ridge area   Sector All   Height 30m   Elevation.grd
+py_wake/examples/data/ParqueFicticio/__init__.py
+py_wake/examples/data/ParqueFicticio/_parque_ficticio.py
+py_wake/examples/data/dtu10mw/__init__.py
+py_wake/examples/data/dtu10mw/_dtu10mw.py
+py_wake/examples/data/iea34_130rwt/__init__.py
+py_wake/examples/data/iea34_130rwt/_iea34_130rwt.py
+py_wake/examples/data/iea34_130rwt/one_turbine/del_blade_edge/extra_data.json
+py_wake/examples/data/iea34_130rwt/one_turbine/del_blade_edge/model_set_above_cut_out.h5
+py_wake/examples/data/iea34_130rwt/one_turbine/del_blade_edge/model_set_below_cut_in.h5
+py_wake/examples/data/iea34_130rwt/one_turbine/del_blade_edge/model_set_operating.h5
+py_wake/examples/data/iea34_130rwt/one_turbine/del_blade_flap/extra_data.json
+py_wake/examples/data/iea34_130rwt/one_turbine/del_blade_flap/model_set_above_cut_out.h5
+py_wake/examples/data/iea34_130rwt/one_turbine/del_blade_flap/model_set_below_cut_in.h5
+py_wake/examples/data/iea34_130rwt/one_turbine/del_blade_flap/model_set_operating.h5
+py_wake/examples/data/iea34_130rwt/one_turbine/del_shaft_torsion/extra_data.json
+py_wake/examples/data/iea34_130rwt/one_turbine/del_shaft_torsion/model_set_operating.h5
+py_wake/examples/data/iea34_130rwt/one_turbine/del_tower_bottom_fa/extra_data.json
+py_wake/examples/data/iea34_130rwt/one_turbine/del_tower_bottom_fa/model_set_above_cut_out.h5
+py_wake/examples/data/iea34_130rwt/one_turbine/del_tower_bottom_fa/model_set_below_cut_in.h5
+py_wake/examples/data/iea34_130rwt/one_turbine/del_tower_bottom_fa/model_set_operating.h5
+py_wake/examples/data/iea34_130rwt/one_turbine/del_tower_bottom_ss/extra_data.json
+py_wake/examples/data/iea34_130rwt/one_turbine/del_tower_bottom_ss/model_set_above_cut_out.h5
+py_wake/examples/data/iea34_130rwt/one_turbine/del_tower_bottom_ss/model_set_below_cut_in.h5
+py_wake/examples/data/iea34_130rwt/one_turbine/del_tower_bottom_ss/model_set_operating.h5
+py_wake/examples/data/iea34_130rwt/one_turbine/del_tower_top_torsion/extra_data.json
+py_wake/examples/data/iea34_130rwt/one_turbine/del_tower_top_torsion/model_set_above_cut_out.h5
+py_wake/examples/data/iea34_130rwt/one_turbine/del_tower_top_torsion/model_set_below_cut_in.h5
+py_wake/examples/data/iea34_130rwt/one_turbine/del_tower_top_torsion/model_set_operating.h5
+py_wake/examples/data/iea34_130rwt/one_turbine/electrical_power/extra_data.json
+py_wake/examples/data/iea34_130rwt/one_turbine/electrical_power/model_set_operating.h5
+py_wake/examples/data/iea34_130rwt/one_turbine/thrust/extra_data.json
+py_wake/examples/data/iea34_130rwt/one_turbine/thrust/model_set_above_cut_out.h5
+py_wake/examples/data/iea34_130rwt/one_turbine/thrust/model_set_below_cut_in.h5
+py_wake/examples/data/iea34_130rwt/one_turbine/thrust/model_set_operating.h5
+py_wake/examples/data/iea34_130rwt/two_turbines/del_blade_edge/extra_data.json
+py_wake/examples/data/iea34_130rwt/two_turbines/del_blade_edge/model_set_above_cut_out.h5
+py_wake/examples/data/iea34_130rwt/two_turbines/del_blade_edge/model_set_below_cut_in.h5
+py_wake/examples/data/iea34_130rwt/two_turbines/del_blade_edge/model_set_operating.h5
+py_wake/examples/data/iea34_130rwt/two_turbines/del_blade_flap/extra_data.json
+py_wake/examples/data/iea34_130rwt/two_turbines/del_blade_flap/model_set_above_cut_out.h5
+py_wake/examples/data/iea34_130rwt/two_turbines/del_blade_flap/model_set_below_cut_in.h5
+py_wake/examples/data/iea34_130rwt/two_turbines/del_blade_flap/model_set_operating.h5
+py_wake/examples/data/iea34_130rwt/two_turbines/del_shaft_torsion/extra_data.json
+py_wake/examples/data/iea34_130rwt/two_turbines/del_shaft_torsion/model_set_operating.h5
+py_wake/examples/data/iea34_130rwt/two_turbines/del_tower_bottom_fa/extra_data.json
+py_wake/examples/data/iea34_130rwt/two_turbines/del_tower_bottom_fa/model_set_above_cut_out.h5
+py_wake/examples/data/iea34_130rwt/two_turbines/del_tower_bottom_fa/model_set_below_cut_in.h5
+py_wake/examples/data/iea34_130rwt/two_turbines/del_tower_bottom_fa/model_set_operating.h5
+py_wake/examples/data/iea34_130rwt/two_turbines/del_tower_bottom_ss/extra_data.json
+py_wake/examples/data/iea34_130rwt/two_turbines/del_tower_bottom_ss/model_set_above_cut_out.h5
+py_wake/examples/data/iea34_130rwt/two_turbines/del_tower_bottom_ss/model_set_below_cut_in.h5
+py_wake/examples/data/iea34_130rwt/two_turbines/del_tower_bottom_ss/model_set_operating.h5
+py_wake/examples/data/iea34_130rwt/two_turbines/del_tower_top_torsion/extra_data.json
+py_wake/examples/data/iea34_130rwt/two_turbines/del_tower_top_torsion/model_set_above_cut_out.h5
+py_wake/examples/data/iea34_130rwt/two_turbines/del_tower_top_torsion/model_set_below_cut_in.h5
+py_wake/examples/data/iea34_130rwt/two_turbines/del_tower_top_torsion/model_set_operating.h5
+py_wake/examples/data/iea34_130rwt/two_turbines/electrical_power/extra_data.json
+py_wake/examples/data/iea34_130rwt/two_turbines/electrical_power/model_set_operating.h5
+py_wake/examples/data/iea34_130rwt/two_turbines/thrust/extra_data.json
+py_wake/examples/data/iea34_130rwt/two_turbines/thrust/model_set_above_cut_out.h5
+py_wake/examples/data/iea34_130rwt/two_turbines/thrust/model_set_below_cut_in.h5
+py_wake/examples/data/iea34_130rwt/two_turbines/thrust/model_set_operating.h5
+py_wake/examples/data/iea37/__init__.py
+py_wake/examples/data/iea37/_iea37.py
+py_wake/examples/data/iea37/iea37-335mw.yaml
+py_wake/examples/data/iea37/iea37-ex16.yaml
+py_wake/examples/data/iea37/iea37-ex36.yaml
+py_wake/examples/data/iea37/iea37-ex64.yaml
+py_wake/examples/data/iea37/iea37-ex9.yaml
+py_wake/examples/data/iea37/iea37-windrose.yaml
+py_wake/examples/data/iea37/iea37_aepcalc.py
+py_wake/examples/data/iea37/iea37_reader.py
+py_wake/examples/data/iea37/test_readers.py
+py_wake/ground_models/__init__.py
+py_wake/ground_models/ground_models.py
+py_wake/rotor_avg_models/__init__.py
+py_wake/rotor_avg_models/rotor_avg_model.py
+py_wake/site/__init__.py
+py_wake/site/_site.py
+py_wake/site/distance.py
+py_wake/site/shear.py
+py_wake/site/wasp_grid_site.py
+py_wake/site/xrsite.py
+py_wake/tests/__init__.py
+py_wake/tests/check_speed.py
+py_wake/tests/notebook.py
+py_wake/tests/test_flow_map.py
+py_wake/tests/test_main.py
+py_wake/tests/test_notebooks.py
+py_wake/tests/test_rotor_avg_models.py
+py_wake/tests/test_superposition_models.py
+py_wake/tests/test_deficit_models/__init__.py
+py_wake/tests/test_deficit_models/test_BastankhahGaussian.py
+py_wake/tests/test_deficit_models/test_blockage_models.py
+py_wake/tests/test_deficit_models/test_deficit_models.py
+py_wake/tests/test_deficit_models/test_fuga.py
+py_wake/tests/test_deficit_models/test_gcl.py
+py_wake/tests/test_deficit_models/test_noj.py
+py_wake/tests/test_deficit_models/test_selfsimilarity.py
+py_wake/tests/test_deflection_models/__init__.py
+py_wake/tests/test_deflection_models/test_deflection_models.py
+py_wake/tests/test_deflection_models/test_fuga_deflection.py
+py_wake/tests/test_deflection_models/test_jimenez.py
+py_wake/tests/test_deprecated/__init__.py
+py_wake/tests/test_deprecated/test_aep_calculator.py
+py_wake/tests/test_deprecated/test_deprecated_windturbines.py
+py_wake/tests/test_files/__init__.py
+py_wake/tests/test_files/fuga/__init__.py
+py_wake/tests/test_files/wasp_grid_site/__init__.py
+py_wake/tests/test_files/wasp_grid_site/one_layer/__init__.py
+py_wake/tests/test_ground_models/__init__.py
+py_wake/tests/test_ground_models/test_mirror.py
+py_wake/tests/test_load_surrogates/__init__.py
+py_wake/tests/test_load_surrogates/test_iea34_surrogates.py
+py_wake/tests/test_load_surrogates/test_tensorflow_surrogate_utils.py
+py_wake/tests/test_sites/__init__.py
+py_wake/tests/test_sites/test_distances.py
+py_wake/tests/test_sites/test_shear_models.py
+py_wake/tests/test_sites/test_site.py
+py_wake/tests/test_sites/test_wasp_grid_site.py
+py_wake/tests/test_sites/test_xrsite.py
+py_wake/tests/test_turbulence_models/__init__.py
+py_wake/tests/test_turbulence_models/test_turbulence_models.py
+py_wake/tests/test_utils/__init__.py
+py_wake/tests/test_utils/test_check_input.py
+py_wake/tests/test_utils/test_elliptic.py
+py_wake/tests/test_utils/test_gradients.py
+py_wake/tests/test_utils/test_grid_interpolator.py
+py_wake/tests/test_utils/test_model_utils.py
+py_wake/tests/test_utils/test_xarray_utils.py
+py_wake/tests/test_wind_farm_models/__init__.py
+py_wake/tests/test_wind_farm_models/test_enginering_wind_farm_model.py
+py_wake/tests/test_wind_farm_models/test_parallel_aep.py
+py_wake/tests/test_wind_farm_models/test_simulation_result.py
+py_wake/tests/test_wind_farm_models/test_wind_farm_model.py
+py_wake/tests/test_windturbines/__init__.py
+py_wake/tests/test_windturbines/test_generic_wind_turbines.py
+py_wake/tests/test_windturbines/test_power_ct_curves.py
+py_wake/tests/test_windturbines/test_power_ct_wind_turbines.py
+py_wake/tests/test_windturbines/test_windturbines.py
+py_wake/turbulence_models/__init__.py
+py_wake/turbulence_models/crespo.py
+py_wake/turbulence_models/gcl_turb.py
+py_wake/turbulence_models/stf.py
+py_wake/turbulence_models/turbulence_model.py
+py_wake/utils/__init__.py
+py_wake/utils/area_overlapping_factor.py
+py_wake/utils/check_input.py
+py_wake/utils/elliptic.py
+py_wake/utils/fuga_utils.py
+py_wake/utils/functions.py
+py_wake/utils/generic_power_ct_curves.py
+py_wake/utils/gradients.py
+py_wake/utils/grid_interpolator.py
+py_wake/utils/model_utils.py
+py_wake/utils/tensorflow_surrogate_utils.py
+py_wake/utils/weibull.py
+py_wake/utils/xarray_utils.py
+py_wake/validation/__init__.py
+py_wake/validation/ecn_wieringermeer.py
+py_wake/validation/lillgrund.py
+py_wake/validation/validation.py
+py_wake/validation/validation_lib.py
+py_wake/wind_farm_models/__init__.py
+py_wake/wind_farm_models/engineering_models.py
+py_wake/wind_farm_models/wind_farm_model.py
+py_wake/wind_turbines/__init__.py
+py_wake/wind_turbines/_wind_turbines.py
+py_wake/wind_turbines/generic_wind_turbines.py
+py_wake/wind_turbines/power_ct_functions.py
+py_wake/wind_turbines/wind_turbine_functions.py
+py_wake/wind_turbines/wind_turbines_deprecated.py

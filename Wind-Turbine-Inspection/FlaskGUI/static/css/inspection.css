@@ -1,0 +1,175 @@
+html, body {
+    height: 100vh;
+    overflow: hidden;
+}
+
+p {
+    color: black;
+}
+
+.scroll_wrapper section {
+    /*width: 100%;*/
+    /*height: 100vh; !*vh = View Height*!*/
+    /*overflow-y: scroll;*/
+    /*scroll-snap-type: y mandatory;*/
+    scroll-snap-align: start;
+}
+
+.panel {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.canvas {
+    position: relative;
+    background-image: url("../img/water.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-color: white;
+}
+
+#drone {
+    background-image: url("../img/drone_sprite_red.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.img {
+    position: absolute;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    zoom: 1;
+    filter: alpha(opacity=50);
+    opacity: 0.5;
+    z-index: 999;
+}
+
+#rotation_wheel {
+    display: none;
+    position: absolute;
+    margin-top: 5px;
+    margin-left: 5px;
+}
+
+#wind_direction_text {
+    z-index: 2000;
+    text-align: center;
+    color: black;
+    margin-top: -40px;
+}
+
+.platform {
+    background-color: dodgerblue;
+}
+
+.wind-turbine {
+    background-color: #e3b35f;
+}
+
+.circle {
+    height: 25px;
+    width: 25px;
+    border-radius: 50%;
+    display: inline-block;
+    position: absolute;
+    left: 10%;
+    top: 100%;
+}
+
+.btn-circle:hover {
+    -webkit-transform: scale(1.5);
+    -ms-transform: scale(1.5);
+    transform: scale(1.5);
+}
+
+.btn-circle:hover + .info_text {
+    visibility: visible;
+}
+
+.info_text {
+    text-align: center;
+    vertical-align: middle;
+    font-size: smaller;
+    width: fit-content;
+    visibility: hidden;
+    position: absolute;
+    left: -88px;
+}
+
+.bg_info_text {
+    border-radius: 25px;
+    background-color: white;
+    width: max-content;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.round_corners {
+    border-radius: 25px;
+    border: 2px solid black;
+}
+
+.btn-circle {
+    width: 25px;
+    height: 25px;
+    padding: 6px 6px;
+    border-radius: 15px;
+    text-align: center;
+    font-size: 12px;
+    line-height: 1.42857;
+    position: absolute;
+}
+
+.text_v_center {
+    text-align: center;
+    vertical-align: middle;
+}
+
+.top-buffer {
+    margin-top: 20px;
+}
+
+.white_text {
+    color: white
+}
+
+.bubble {
+    background: red;
+    color: white;
+    padding: 4px 12px;
+    position: absolute;
+    border-radius: 4px;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 25px;
+}
+
+.bubble::after {
+    content: "";
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: red;
+    top: -1px;
+    left: 50%;
+}
+
+.range-wrap {
+    position: relative;
+    padding: 0;
+}
+
+.range {
+    width: 100%;
+}
+
+/*Radio buttons*/

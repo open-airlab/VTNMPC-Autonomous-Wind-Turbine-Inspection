@@ -1,0 +1,27 @@
+<launch>
+    <node pkg="gp_regression" type="gp_disturb_main" name="gp_disturb_main_x" output="screen" />
+
+    	<param name="mocap_topic_part" type="string" value="mocap" /> <!-- Parameter to specify part of the topic name for localization data. -->
+	<param name="switch_xyz" type="int" value="0" /> <!-- Paramter to switch the regression between x,y,z. x=0, y=1, z=2.-->
+	<param name="predInit_pub_topic" type="string" value="/gp_disturb_reg/predInit/x" /> <!-- Topic name for predInit.-->
+	<param name="mu_pub_topic" type="string" value="/gp_disturb_reg/mu/x" /> <!-- Topic name for mu.-->
+	<param name="var_pub_topic" type="string" value="/gp_disturb_reg/var/x" /> <!-- Topic name for var.-->
+	<param name="mu_p_2std_dev_topic" type="string" value="/gp_disturb_reg/mu_p_2std_dev/x" /> <!-- Topic name for mu_p_2std_dev.-->
+	<param name="mu_m_2std_dev_topic" type="string" value="/gp_disturb_reg/mu_m_2std_dev/x" /> <!-- Topic name for mu_m_2std_dev.-->
+
+	<param name="file_gp_initial" type="string" value="gp_initial_x.dat" /> <!-- File name for gp_initial.-->
+	<param name="create_new_gp_initial" type="bool" value="true" /> <!-- Paramter to create new gp_initial.-->
+	<param name="use_gp_initial" type="bool" value="true" /> <!-- Paramter to use LSTM feature by utilizing gp_initial.-->
+	<param name="gp_type" type="int" value="1" /> <!-- Paramter to set gp_type. 0 for data only, 1 for data+del_data.-->
+	<param name="data_history" type="int" value="5" /> <!-- Paramter to set input data history.-->
+	<param name="max_initial_rec_time_sec" type="int" value="15" /> <!-- Paramter to set maximum initial recording time.-->
+	<param name="num_window_points_past" type="int" value="200" /> <!-- Paramter to set number of window points in past.-->
+	<param name="num_predict_points_future" type="int" value="31" /> <!-- Paramter to set number of prediction points in future.-->
+	<param name="rec_rate_factor" type="double" value="0.4" /> <!-- Paramter to set data recording rate factor. Data recoring rate is set equal to rec_rate_factor/sampleTime. -->
+	<param name="use_sparse_gp_initial" type="bool" value="false" /> <!-- Paramter to use sparse_gp_initial.-->
+	<param name="sizefactor_sparse_gp_initial" type="double" value="0.7" /> <!-- Paramter to set sizefactor for sparse_gp_initial.-->
+	<param name="grad_updates" type="int" value="200" /> <!-- Paramter to set the number of gradient updates for obtaining loghyper minimum.-->
+	<param name="covfun1" type="string" value="CovSEard" /> <!-- Paramter to set first covariance function.-->
+	<param name="covfun2" type="string" value="CovNoise" /> <!-- Paramter to set second covariance function.-->
+	<param name="hyper_optimize_method" type="string" value="CG" /> <!-- Paramter to set optimization method.-->
+</launch>

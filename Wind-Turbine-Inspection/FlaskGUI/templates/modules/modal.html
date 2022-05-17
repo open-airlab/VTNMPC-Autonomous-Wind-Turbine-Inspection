@@ -1,0 +1,104 @@
+<div class="modal fade " id="Modal{{ value.name }}" data-bs-backdrop="static"
+     data-bs-keyboard="false" tabindex="-1"
+     aria-labelledby="staticBackdropLabel"
+     aria-hidden="true">
+    <div class="modal-dialog dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel"> {{ value.name }}</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+            </div>
+            <form action="/inspection/update_backend/{{ value.name }}" method="POST">
+                <div class="modal-body">
+
+                    <div class="container">
+                        <div class="row">
+                            <h6 class="text_v_center" style="color:black;">Validate information</h6>
+                        </div>
+                        <div class="row top-buffer">
+                            <div class="col">
+                                <p style="color: black">Wind turbine state:</p>
+                            </div>
+                            <div class="col form-check">
+                                {% if value.state == "STATE1" %}
+                                    <input class="form-check-input" type="radio" id="state1" name="state"
+                                           value="STATE1" checked>
+                                {% else %}
+                                    <input class="form-check-input" type="radio" id="state1" name="state"
+                                           value="STATE1">
+                                {% endif %}
+                                <label class="form-check-label" for="state1">state 1</label><br>
+                            </div>
+                            <div class="col form-check">
+                                {% if value.state == "STATE2" %}
+                                    <input class="form-check-input" type="radio" id="state2" name="state"
+                                           value="STATE2" checked>
+                                {% else %}
+                                    <input class="form-check-input" type="radio" id="state2" name="state"
+                                           value="STATE2">
+                                {% endif %}
+                                <label class="form-check-label" for="state2">state 2</label><br>
+                            </div>
+                            <div class="col form-check">
+                                {% if value.state == "UNKNOWN" %}
+                                    <input class="form-check-input" type="radio" id="state3" name="state"
+                                           value="UNKNOWN"
+                                           checked>
+                                {% else %}
+                                    <input class="form-check-input" type="radio" id="state3" name="state"
+                                           value="UNKNOWN">
+
+                                {% endif %}
+                                <label class="form-check-label" for="state3">unknown</label><br>
+                            </div>
+                        </div>
+                        <div class="row top-buffer">
+                            <div class="col-3"><p style="color: black">Turbine Height (m):</p></div>
+                            <input class="col-9" id="turbine_height_{{ value.name }}" type="text" name="turbine_height"
+                                   value="{{ value.height }}">
+                            <label for="turbine_height_{{ value.name }}"></label>
+                        </div>
+                        <div class="row">
+                            <div class="col-3"><p style="color: black">Blade Radius (m):</p></div>
+                            <input class="col-9" id="blade_radius_{{ value.name }}" type="text" name="blade_radius"
+                                   value="{{ value.blade_radius }}">
+                            <label for="blade_radius_{{ value.name }}"></label>
+
+                            {#                            <div class="col"><p style="color: black">{{ value.blade_radius }}</p></div>#}
+                        </div>
+                        <div class="row">
+                            <div class="col"><p style="color: black">GPS location:</p></div>
+                            <div class="col"><p style="color: black">lat = {{ value.gps.lat }}</p></div>
+                            <div class="col"><p style="color: black">lng = {{ value.gps.lng }}</p></div>
+                            <div class="col"><p style="color: black"></p></div>
+                        </div>
+                        <div class="row">
+                            <div class="col"><p style="color: black">Wind info:
+                                = {{ value.gps.wind_direction }}</p></div>
+                            <div class="col"><p class="wd" style="color: black">Direction
+                                = {{ value.gps.wind_direction }}</p></div>
+                            <div class="col"><p class="wp" style="color: black">Power
+                                = 0</p></div>
+                            <div class="col"><p style="color: black"></p></div>
+
+                        </div>
+                        <div class="row">
+                            <div class="col"><p style="color: black">ue4 location:</p></div>
+                            <div class="col"><p style="color: black">x = {{ value.ue4_pose.x }}</p></div>
+                            <div class="col"><p style="color: black">y = {{ value.ue4_pose.y }}</p></div>
+                            <div class="col"><p style="color: black">yaw = {{ value.ue4_pose.yaw }}</p></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary"
+                            data-bs-dismiss="modal">
+                        Close
+                    </button>
+                    <input type="submit" class="btn btn-primary" value="Submit Mission">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

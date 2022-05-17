@@ -1,0 +1,11 @@
+<launch>
+    <group ns="gp_disturb_main_x">
+    	<include file="$(find gp_regression)/launch/gp_disturb_main_x.launch"/>
+    </group>
+    <group ns="gp_disturb_main_y">
+    	<include file="$(find gp_regression)/launch/gp_disturb_main_y.launch"/>
+    </group>
+    <group ns="gp_disturb_main_z">
+    	<include file="$(find gp_regression)/launch/gp_disturb_main_z.launch"/>
+    </group>
+</launch>

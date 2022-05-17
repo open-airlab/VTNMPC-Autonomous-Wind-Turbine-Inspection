@@ -1,0 +1,15 @@
+/b16
+/bdf-converter
+/cmpconfig
+/configure
+/mkconfig
+/mkdeps
+/cnvwindeps
+/mksymtab
+/mksyscall
+/mkversion
+/nxstyle
+/*.exe
+/*.dSYM
+/.k2h-body.dat
+/.k2h-apndx.dat

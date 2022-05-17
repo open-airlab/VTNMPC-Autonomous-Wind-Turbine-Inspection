@@ -1,0 +1,58 @@
+################################################################################
+#
+# Description:
+#	ACADO Toolkit package configuration file
+#
+# Authors:
+#	Milan Vukov, milan.vukov@esat.kuleuven.be
+#
+# Year:
+#	2011 - 2013.
+#
+# NOTE:
+#	- /
+#
+# Usage:
+#	- /
+#
+################################################################################
+
+################################################################################
+#
+# Configurable section
+#
+################################################################################
+
+# 
+# Tell the user project where to find our headers, libraries and external
+# packages, etc.
+#
+SET( ACADO_INCLUDE_DIRS "/home/mohit-pc/catkin_ws/install/include/acado" )
+SET( ACADO_LIBRARY_DIRS "/home/mohit-pc/catkin_ws/install/lib" )
+SET( ACADO_EXTERNAL_PACKAGES_DIR /home/mohit-pc/catkin_ws/install/share/acado/external_packages )
+SET( ACADO_CMAKE_DIR /home/mohit-pc/catkin_ws/install/share/acado/cmake )
+ 
+#
+# List of ACADO static libraries
+#
+SET( ACADO_STATIC_LIBRARIES  )
+#
+# List of ACADO shared libraries
+#
+SET( ACADO_SHARED_LIBRARIES acado_toolkit_s )
+
+#
+# ACADO is shipped with embedded version of qpOASES. Here is specified
+# where source and header files reside
+#
+SET( ACADO_QPOASES_EMBEDDED_SOURCES /home/mohit-pc/catkin_ws/install/share/acado/external_packages/qpoases/SRC/Bounds.cpp;/home/mohit-pc/catkin_ws/install/share/acado/external_packages/qpoases/SRC/CyclingManager.cpp;/home/mohit-pc/catkin_ws/install/share/acado/external_packages/qpoases/SRC/MessageHandling.cpp;/home/mohit-pc/catkin_ws/install/share/acado/external_packages/qpoases/SRC/QProblem.cpp;/home/mohit-pc/catkin_ws/install/share/acado/external_packages/qpoases/SRC/Utils.cpp;/home/mohit-pc/catkin_ws/install/share/acado/external_packages/qpoases/SRC/Constraints.cpp;/home/mohit-pc/catkin_ws/install/share/acado/external_packages/qpoases/SRC/Indexlist.cpp;/home/mohit-pc/catkin_ws/install/share/acado/external_packages/qpoases/SRC/QProblemB.cpp;/home/mohit-pc/catkin_ws/install/share/acado/external_packages/qpoases/SRC/SubjectTo.cpp;/home/mohit-pc/catkin_ws/install/share/acado/external_packages/qpoases/SRC/EXTRAS/SolutionAnalysis.cpp )
+SET( ACADO_QPOASES_EMBEDDED_INC_DIRS /home/mohit-pc/catkin_ws/install/share/acado/external_packages/qpoases/;/home/mohit-pc/catkin_ws/install/share/acado/external_packages/qpoases/INCLUDE;/home/mohit-pc/catkin_ws/install/share/acado/external_packages/qpoases/SRC )
+
+################################################################################
+#
+# Validation
+#
+################################################################################
+
+# TODO
+

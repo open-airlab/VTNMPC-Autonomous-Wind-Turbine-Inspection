@@ -1,0 +1,50 @@
+#
+# For a description of the syntax of this configuration file,
+# see the file kconfig-language.txt in the NuttX tools repository.
+#
+
+menu "UDP Networking"
+
+config NET_UDP
+	bool "UDP Networking"
+	default n
+	depends on NET
+	---help---
+		Enable or disable UDP networking support.
+
+config NET_UDP_NO_STACK
+	bool "Disable UDP/IP Stack"
+	default n
+	select NET_UDP
+	---help---
+		Build without UDP/IP stack even if UDP networking support enabled.
+
+if NET_UDP && !NET_UDP_NO_STACK
+
+config NET_UDP_CHECKSUMS
+	bool "UDP checksums"
+	default y if NET_IPv6
+	default n if !NET_IPv6
+	---help---
+		Enable/disable UDP checksum support.  UDP checksum support is
+		REQUIRED for IPv6.
+
+config NET_UDP_CONNS
+	int "Number of UDP sockets"
+	default 8
+	---help---
+		The maximum amount of open concurrent UDP sockets
+
+config NET_BROADCAST
+	bool "UDP broadcast Rx support"
+	default n
+	---help---
+		Incoming UDP broadcast support
+
+config NET_UDP_READAHEAD
+	bool "Enable UDP/IP read-ahead buffering"
+	default y
+	select MM_IOB
+
+endif # NET_UDP && !NET_UDP_NO_STACK
+endmenu # UDP Networking

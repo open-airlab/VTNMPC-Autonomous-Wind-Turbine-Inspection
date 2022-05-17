@@ -1,0 +1,39 @@
+<?xml version="1.0" ?>
+<sdf version="1.5">
+  <model name="ellipsoid_obst_1">
+    <pose>0.0 -0.5 0.9 0 0 0</pose>
+    <static>1</static>
+    <link name="ellipsoid_obst_1_link">
+      <collision name="ellipsoid_obst_1_link_collision">
+	<geometry>
+	    <box>
+               <size>0.3 0.5 0.4</size>
+            </box>
+	</geometry>
+	<surface>
+	   <contact>
+	      <ode/>
+	   </contact>
+	   <friction>
+	      <ode/>
+	   </friction>
+	</surface>
+      </collision>
+      <visual name="ellipsoid_obst_1_visual">
+<!--	<transparency>1</transparency> -->
+        <geometry>
+	   <mesh>
+	     <uri>model://ellipsoid_obst_1/meshes/ellipsoid_obs_1.stl</uri>
+             <scale>1 1 1</scale>
+	   </mesh>
+        </geometry>
+      </visual>  
+      <self_collide>0</self_collide>
+    </link>
+  </model>
+</sdf>
+
+
+   
+
+

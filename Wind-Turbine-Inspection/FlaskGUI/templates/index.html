@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+          crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/menu_bar.css') }}">
+
+    <!-- java scripts -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/menu_bar.js') }}"></script>
+
+    <title>Home</title>
+</head>
+<body>
+<!-- Content -->
+<div id="wrapper">
+    <div class="overlay"></div>
+    <!-- including sidebar template-->
+    {% include  "modules/sidebar.html" %}
+    <!-- including sidebar template end-->
+
+    <!-- Page Content -->
+
+    <div id="page-content-wrapper">
+        {#                <div class="container">#}
+        {#                    <div class="row">#}
+        {#                        <div class="col-lg-8  offset-lg-2">#}
+        {#                            <h3 class="mt-5">Live Streaming</h3>#}
+        {#                            <img src="{{ url_for('video_feed') }}" width="100%">#}
+        {#                        </div>#}
+        {#                    </div>#}
+        {#                </div>#}
+
+
+        <!-- accordions -->
+        <div class="accordion" id="accordionPanelsStayOpenExample">
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+                    <form method="POST" action="{{ url_for("toggle_feed") }}">
+                        <button name="test" class="accordion-button" type="submit" data-bs-toggle="collapse"
+                                data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true"
+                                aria-controls="panelsStayOpen-collapseOne" value="0.1">
+                            Accordion Item #1
+                        </button>
+                    </form>
+                </h2>
+                <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show"
+                     aria-labelledby="panelsStayOpen-headingOne">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-8  offset-lg-2">
+                                <h3 class="mt-5">Live Streaming</h3>
+                                <img src="{{ url_for('video_feed') }}" width="100%">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false"
+                            aria-controls="panelsStayOpen-collapseTwo">
+                        Accordion Item #2
+                    </button>
+                </h2>
+                <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse"
+                     aria-labelledby="panelsStayOpen-headingTwo">
+                    <div class="accordion-body">
+                        <strong>This is the second item's accordion body.</strong> It is hidden by default,
+                        until the collapse plugin adds the appropriate classes that we use to style each
+                        element. These classes control the overall appearance, as well as the showing and hiding
+                        via CSS transitions. You can modify any of this with custom CSS or overriding our
+                        default variables. It's also worth noting that just about any HTML can go within the
+                        <code>.accordion-body</code>, though the transition does limit overflow.
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="panelsStayOpen-headingThree">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false"
+                            aria-controls="panelsStayOpen-collapseThree">
+                        Accordion Item #3
+                    </button>
+                </h2>
+                <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse"
+                     aria-labelledby="panelsStayOpen-headingThree">
+                    <div class="accordion-body">
+                        <strong>This is the third item's accordion body.</strong> It is hidden by default, until
+                        the collapse plugin adds the appropriate classes that we use to style each element.
+                        These classes control the overall appearance, as well as the showing and hiding via CSS
+                        transitions. You can modify any of this with custom CSS or overriding our default
+                        variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>,
+                        though the transition does limit overflow.
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2">
+                    <h1 class="page-header">Awesome Bootstrap 3 Sidebar Navigation</h1>
+                    <p class="lead">Originally authored by <a
+                            href="https://bootsnipp.com/maridlcrmn">maridlcrmn</a> on Bootsnipp and then
+                        converted to Less and customized further by <a
+                                href="https://jay.holtslander.ca/?utm_source=codepen&utm_medium=pen-link"
+                                target="_blank">j_holtslander</a> who is building a <a
+                                href="https://codepen.io/collection/nJGkWV" target="_new">collection</a> of
+                        great Bootstrap 3 navbars.</p>
+                    <p>Maecenas sed diam eget risus varius blandit sit amet non magna. Sed posuere consectetur
+                        est at lobortis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
+                        posuere erat a ante venenatis dapibus posuere velit aliquet. Etiam porta sem malesuada
+                        magna mollis euismod. Aenean lacinia bibendum nulla sed consectetur. Nulla vitae elit
+                        libero, a pharetra augue.</p>
+                    <p>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Lorem
+                        ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante venenatis
+                        dapibus posuere velit aliquet. Cras mattis consectetur purus sit amet fermentum.</p>
+                    <p>Donec id elit non mi porta gravida at eget metus. Morbi leo risus, porta ac consectetur
+                        ac, vestibulum at eros. Fusce dapibus, tellus ac cursus commodo, tortor mauris
+                        condimentum nibh, ut fermentum massa justo sit amet risus. Maecenas faucibus mollis
+                        interdum. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia
+                        odio sem nec elit. Aenean lacinia bibendum nulla sed consectetur.</p>
+                    <h3>A heading in the mix.</h3>
+                    <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Integer posuere erat a ante
+                        venenatis dapibus posuere velit aliquet. Etiam porta sem malesuada magna mollis euismod.
+                        Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Cras mattis
+                        consectetur purus sit amet fermentum. Curabitur blandit tempus porttitor. Praesent
+                        commodo cursus magna, vel scelerisque nisl consectetur et.</p>
+                    <blockquote>Maecenas sed diam eget risus varius blandit sit amet non magna. Sed posuere
+                        consectetur est at lobortis. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Etiam porta sem
+                        malesuada magna mollis euismod. Aenean lacinia bibendum nulla sed consectetur. Nulla
+                        vitae elit libero, a pharetra augue.
+                    </blockquote>
+                    <p>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Lorem
+                        ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante venenatis
+                        dapibus posuere velit aliquet. Cras mattis consectetur purus sit amet fermentum.</p>
+                    <p>Donec id elit non mi porta gravida at eget metus. Morbi leo risus, porta ac consectetur
+                        ac, vestibulum at eros. Fusce dapibus, tellus ac cursus commodo, tortor mauris
+                        condimentum nibh, ut fermentum massa justo sit amet risus. Maecenas faucibus mollis
+                        interdum. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia
+                        odio sem nec elit. Aenean lacinia bibendum nulla sed consectetur.</p>
+                    <h3>Another heading for typography's sake.</h3>
+                    <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Integer posuere erat a ante
+                        venenatis dapibus posuere velit aliquet. Etiam porta sem malesuada magna mollis euismod.
+                        Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Cras mattis
+                        consectetur purus sit amet fermentum. Curabitur blandit tempus porttitor. Praesent
+                        commodo cursus magna, vel scelerisque nisl consectetur et.</p>
+                    <p>Maecenas sed diam eget risus varius blandit sit amet non magna. Sed posuere consectetur
+                        est at lobortis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
+                        posuere erat a ante venenatis dapibus posuere velit aliquet. Etiam porta sem malesuada
+                        magna mollis euismod. Aenean lacinia bibendum nulla sed consectetur. Nulla vitae elit
+                        libero, a pharetra augue.</p>
+                    <p>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Lorem
+                        ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante venenatis
+                        dapibus posuere velit aliquet. Cras mattis consectetur purus sit amet fermentum.</p>
+                    <p>Donec id elit non mi porta gravida at eget metus. Morbi leo risus, porta ac consectetur
+                        ac, vestibulum at eros. Fusce dapibus, tellus ac cursus commodo, tortor mauris
+                        condimentum nibh, ut fermentum massa justo sit amet risus. Maecenas faucibus mollis
+                        interdum. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia
+                        odio sem nec elit. Aenean lacinia bibendum nulla sed consectetur.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /#page-content-wrapper -->
+
+</div>
+<!-- /#wrapper -->
+</body>
+</html>

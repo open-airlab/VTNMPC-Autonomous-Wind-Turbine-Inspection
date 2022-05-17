@@ -1,0 +1,51 @@
+Metadata-Version: 2.1
+Name: py-wake
+Version: 2.2.0
+Summary: PyWake a collection of wake models
+Home-page: https://gitlab.windenergy.dtu.dk/TOPFARM/PyWake
+Author: DTU Wind Energy
+Author-email: mmpe@dtu.dk
+License: MIT
+Description: [![pipeline status](https://gitlab.windenergy.dtu.dk/TOPFARM/PyWake/badges/master/pipeline.svg)](https://gitlab.windenergy.dtu.dk/TOPFARM/PyWake/commits/master)
+        [![coverage report](https://gitlab.windenergy.dtu.dk/TOPFARM/PyWake/badges/master/coverage.svg)](https://gitlab.windenergy.dtu.dk/TOPFARM/PyWake/commits/master)
+        [![DOI](https://zenodo.org/badge/164115313.svg)](https://zenodo.org/badge/latestdoi/164115313)
+        [![PyPi](https://img.shields.io/pypi/v/py_wake)](https://pypi.org/project/py-wake/)
+        [![License](https://img.shields.io/pypi/l/py_wake)](https://gitlab.windenergy.dtu.dk/TOPFARM/PyWake/blob/master/LICENSE)
+        
+        ![PyWake](https://gitlab.windenergy.dtu.dk/TOPFARM/PyWake/raw/master/docs/logo.svg)
+        
+        ## Welcome to PyWake
+        - an AEP calculator for wind farms implemented in Python including a collection of wake models
+        
+        
+        This is a work-in-progress attempt to make something like FUSEDWAKE 2.0. Its relation to FUSEDWAKE is, however, not determined yet.
+        The idea is that it should:
+        
+        - Reduce duplicated code
+        - Include wakemap functions
+        - Be faster
+        - Be suitable for layout optimization
+        - Support use of load surrrogate models
+        - Support complex terrain
+        - Support gradient based optimization
+        
+        
+        ## Quick Start:
+        
+        `pip install py_wake`
+        
+        ## Source code repository (and issue tracker):
+        
+        [https://gitlab.windenergy.dtu.dk/TOPFARM/PyWake](https://gitlab.windenergy.dtu.dk/TOPFARM/PyWake)
+        
+        ## License:
+        [MIT](https://gitlab.windenergy.dtu.dk/TOPFARM/PyWake/blob/master/LICENSE)
+        
+        ## Documentation, installation, etc:
+        
+        [https://topfarm.pages.windenergy.dtu.dk/PyWake](https://topfarm.pages.windenergy.dtu.dk/PyWake).
+        
+        
+Platform: UNKNOWN
+Provides-Extra: test
+Provides-Extra: loads

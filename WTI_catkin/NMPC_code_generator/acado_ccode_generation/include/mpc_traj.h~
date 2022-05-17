@@ -1,0 +1,25 @@
+// #ifndef MPC_TRAJ_H
+// #define MPC_TRAJ_H
+
+// #endif // MPC_TRAJ_H
+
+#include <ros/ros.h>
+#include <geometry_msgs/PoseStamped.h>
+#include <std_msgs/Float64.h>
+#include <mavros_msgs/CommandBool.h>
+#include <mavros_msgs/SetMode.h>
+#include <mavros_msgs/State.h>
+#include <mavros_msgs/ExtendedState.h>
+#include <Eigen/Dense>
+#include <math.h>
+
+using namespace geometry_msgs;
+using namespace std;
+using namespace ros;
+
+// Publishers
+ros::Publisher local_pos_pub;
+ros::Publisher local_servo_pub;
+ros::Publisher local_traj_start_pub;
+
+double t, time_drop = 0, t_traj;

@@ -1,0 +1,76 @@
+#
+# For a description of the syntax of this configuration file,
+# see the file kconfig-language.txt in the NuttX tools repository.
+#
+
+config EXAMPLES_ELF
+	bool "ELF Loader Example"
+	default n
+	---help---
+		Enable the ELF loader example
+
+if EXAMPLES_ELF
+
+config EXAMPLES_ELF_SYSCALL
+	bool "Link with SYSCALL library"
+	default n
+	depends on LIB_SYSCALL && !BUILD_KERNEL
+	---help---
+		Link with the SYSCALL library.  By default, all undefined symbols
+		must be provided via a symbol table.  But if this option is
+		selected, then each ELF test program will link with the SYSCALL
+		library and will interface with the OS system calls.  In this case,
+		those symbols will not be undefined.  If the SYSCALL library is
+		available then you probably will want to select this option.
+
+config EXAMPLES_ELF_LIBC
+	bool "Link with LIBC"
+	default n
+	depends on !BUILD_KERNEL
+	---help---
+		Link with the C library (and also math library if it was built).
+		By default, all undefined symbols must be provided via a symbol
+		table.  But if this option is selected, then each ELF test program
+		will link with the SYSCALL library and will interface with the OS
+		system calls.  You probably will NOT want this option, however,
+		because it will substantially increase the size of code.  For
+		example, a separate copy of printf() would be linked with every
+		program greatly increasing the total code size.  This option is
+		primarily intended only for testing.
+
+config EXAMPLES_ELF_DEVMINOR
+	int "ROMFS Minor Device Number"
+	default 0
+	---help---
+		The minor device number of the ROMFS block. For example, the N in /dev/ramN.
+		Used for registering the RAM block driver that will hold the ROMFS file system
+		containing the ELF executables to be tested.  Default: 0
+
+config EXAMPLES_ELF_DEVPATH
+	string "ROMFS Device Path"
+	default "/dev/ram0"
+	---help---
+		The path to the ROMFS block driver device.  This must match EXAMPLES_ELF_DEVMINOR.
+		Used for registering the RAM block driver that will hold the ROMFS file system
+		containing the ELF executables to be tested.  Default: "/dev/ram0"
+
+config EXAMPLES_ELF_CXXINITIALIZE
+	bool "C++ Initialization"
+	default y
+	depends on HAVE_CXX && HAVE_CXXINITIALIZE
+	---help---
+		By default, if CONFIG_HAVE_CXX and CONFIG_HAVE_CXXINITIALIZE are
+		defined, then this example will call the NuttX function to
+		initialize static C++ constructors.  This option may be disabled,
+		however, if that static initialization was performed elsewhere.
+
+config EXAMPLES_ELF_UCLIBCXX
+	bool "uClibc++ is installed"
+	default n
+	depends on UCLIBCXX
+	---help---
+		By default, uClibc++ is not installed and configured. If the
+		user installs and configures the C++ standard library, this
+		example will compile the demos using it.
+
+endif

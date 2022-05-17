@@ -1,0 +1,24 @@
+<launch>
+    <node name="m100_trajectory_v2" pkg="dji_m100_trajectory" type="m100_trajectory_v2" output="screen"/>
+	<param name="mocap_topic" type="string" value="/mavros/mocap/pose" />
+    	<param name="Llidar_topic" type="string" value="/teraranger_evo_l" />
+	<param name="Clidar_topic" type="string" value="/teraranger_evo_c" />
+    	<!--param name="Clidar_topic" type="string" value="/teraranger_duo/infrared" /-->
+    	<param name="Rlidar_topic" type="string" value="/teraranger_evo_r" />
+	<param name="use_sonar" type="bool" value="false" />
+	<param name="sonar_topic" type="string" value="/teraranger_duo/ultrasound" />
+        <param name="use_current_pos" type="bool" value="true" />
+
+    <!-- <node name="dummyLidar" pkg="dji_m100_trajectory" type="dummyLidar" output="screen" />
+    	<param name="Llidar_topic" type="string" value="/teraranger_evo_l" />
+	<param name="Clidar_topic" type="string" value="/teraranger_evo_c" />
+    	<param name="Rlidar_topic" type="string" value="/teraranger_evo_r" />
+	<param name="sonar_topic" type="string" value="/teraranger_duo/ultrasound" /> -->
+	<!--param name="Clidar_topic" type="string" value="/teraranger_duo/infrared" /-->
+
+   
+    <node name="rqt_reconfigure" pkg="rqt_reconfigure" type="rqt_reconfigure" />
+
+
+
+</launch>

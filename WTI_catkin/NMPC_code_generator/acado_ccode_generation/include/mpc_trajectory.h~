@@ -1,0 +1,29 @@
+// #ifndef MPC_TRAJ_H
+// #define MPC_TRAJ_H
+
+// #endif // MPC_TRAJ_H
+
+#include <ros/ros.h>
+#include <geometry_msgs/PoseStamped.h>
+#include <std_msgs/Float64.h>
+#include <mavros_msgs/CommandBool.h>
+#include <mavros_msgs/SetMode.h>
+#include <mavros_msgs/State.h>
+#include <mavros_msgs/ExtendedState.h>
+#include <Eigen/Dense>
+#include <math.h>
+
+using namespace geometry_msgs;
+using namespace std;
+using namespace ros;
+
+// Publishers
+ros::Publisher local_pos_pub;
+ros::Publisher local_servo_pub;
+ros::Publisher local_traj_start_pub;
+
+double t, t_last, traj_time, time_drop = 0;
+bool climbed_flag = 0, landed_flag = 0, drop_start = 0;
+int print_flag_traj_start = 0, print_flag_hover = 1, 
+print_flag_circle = 1, print_flag_fig8 = 1, print_flag_changez = 1;
+int print_flag_climb = 0, print_flag_land = 0;

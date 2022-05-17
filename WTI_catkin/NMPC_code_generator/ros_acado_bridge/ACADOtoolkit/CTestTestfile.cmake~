@@ -1,0 +1,10 @@
+# CMake generated Testfile for 
+# Source directory: /home/mohit-pc/catkin_ws/src/ros_acado_bridge/ACADOtoolkit
+# Build directory: /home/mohit-pc/catkin_ws/src/ros_acado_bridge/ACADOtoolkit
+# 
+# This file includes the relevant testing commands required for 
+# testing this directory and lists subdirectories to be tested as well.
+SUBDIRS(acado)
+SUBDIRS(external_packages/qpOASES-3.2.0)
+SUBDIRS(external_packages/csparse)
+SUBDIRS(external_packages/casadi)

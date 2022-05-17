@@ -1,0 +1,1 @@
+# INFORMATION about "static" folder

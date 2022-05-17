@@ -1,0 +1,3 @@
+windspeed_upper: 29.6 # 29.6 is the limit, so anything lower.
+windspeed_lower: 0.1 # 0.1 is the limit, so something higher.
+turbulence_magnitude: 4

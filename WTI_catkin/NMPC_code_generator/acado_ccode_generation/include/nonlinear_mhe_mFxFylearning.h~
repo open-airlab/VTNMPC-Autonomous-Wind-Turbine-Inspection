@@ -1,0 +1,116 @@
+#pragma once
+
+#include <ros/ros.h>
+#include <geometry_msgs/PoseStamped.h>
+#include <geometry_msgs/TwistStamped.h>
+#include <mavros_msgs/State.h>
+// #include<mavros_msgs/ExtendedState.h>
+#include <std_msgs/Float64.h>
+#include <std_msgs/Float64MultiArray.h>
+#include <math.h>
+#include <Eigen/Dense>
+#include <tf/tf.h>
+
+#include "nmhe_common.h"
+#include "nmhe_auxiliary_functions.h"
+
+extern double sampleTime;
+
+extern NMHEworkspace nmheWorkspace;
+extern NMHEvariables nmheVariables;
+
+class NMHE
+{
+	private:
+		
+		bool is_estimator_init;
+
+		Eigen::VectorXd X0;
+		Eigen::VectorXd U0;
+		Eigen::VectorXd W;
+		Eigen::VectorXd WN;
+
+		Eigen::VectorXd SAC;
+		Eigen::VectorXd xAC;
+		Eigen::MatrixXd WL_mat;
+
+		int run_cnt;
+
+	public:
+	
+		struct acado_struct
+		{
+			boost::function<int(void)> initializeSolver;
+			boost::function<int(void)> preparationStep;
+			boost::function<int(void)> feedbackStep;
+			boost::function<real_t(void)> getKKT;
+			boost::function<void(void)> printDifferentialVariables;
+			boost::function<void(void)> printControlVariables;
+			boost::function<int(int a)> updateArrivalCost;
+
+			int acado_N;
+			int acado_NX;
+			int acado_NY;
+			int acado_NYN;
+			int acado_NU;
+			int acado_NOD;
+
+			real_t * x;
+			real_t * u;
+			real_t * od;
+			real_t * y;
+			real_t * yN;
+			real_t * W;
+			real_t * WN;
+			real_t * SAC;
+			real_t * xAC;
+			real_t * WL;
+		} nmhe_struct;
+
+		struct estimation_struct
+		{
+			double u_est;
+			double v_est;
+			double w_est;
+			double m_est;
+			double Fx_dist_est;
+			double Fy_dist_est;
+			double exe_time;
+			double kkt_tol;
+
+		} nmhe_est_struct;
+
+		NMHE();
+		~NMHE();
+
+		bool return_estimator_init_value();
+
+		void nmhe_init(struct acado_struct &acadostruct);
+
+		void nmhe_core(struct acado_struct &acadostruct, struct estimation_struct &estimationstruct, Eigen::VectorXd &currentvelrates, Eigen::Vector3d &nmpccmdryp, Eigen::Vector2d &nmpccmdFz);
+
+		void publish_uvw_mFxFy(struct estimation_struct &estimationstruct);
+
+	protected:
+		ros::NodeHandle private_nh;
+
+		void set_measurements(struct acado_struct &acadostruct, Eigen::VectorXd &currentvelrates, Eigen::Vector3d &nmpccmd);
+
+		// Subscribers
+//		ros::Subscriber local_traj_sub;
+//		ros::Subscriber local_pos_sub;
+		ros::Subscriber local_vel_rates_sub;
+		ros::Subscriber nmpc_cmd_rpy_sub;
+		ros::Subscriber nmpc_cmd_Fz_sub;
+
+		// Publishers
+		ros::Publisher nmhe_vel_pub;
+		ros::Publisher nmhe_mFxFy_pub;
+		ros::Publisher nmhe_exeTime_pub;
+		ros::Publisher nmhe_kkt_pub;
+};
+
+ros::Subscriber state_sub;
+// ros::Subscriber ext_state_sub;
+
+double t;

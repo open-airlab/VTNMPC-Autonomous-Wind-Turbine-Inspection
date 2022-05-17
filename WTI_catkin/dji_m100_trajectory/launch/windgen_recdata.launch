@@ -1,0 +1,8 @@
+<launch>
+    <node name="wind_generation" pkg="dji_m100_trajectory" type="wind_generation" output="screen"/>
+    	<param name="wind_pub_topic" type="string" value="/wind_3d" />
+
+    <!--<node name="recdata" pkg="dji_m100_trajectory" type="recdata" output="screen" />-->
+    <node name="wind_node" pkg="dji_m100_trajectory" type="wind_node.py"/>
+    <node name="rqt_reconfigure" pkg="rqt_reconfigure" type="rqt_reconfigure" />
+</launch>

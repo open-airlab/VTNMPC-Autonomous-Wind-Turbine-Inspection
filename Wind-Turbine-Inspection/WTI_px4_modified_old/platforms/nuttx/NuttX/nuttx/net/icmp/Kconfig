@@ -1,0 +1,32 @@
+#
+# For a description of the syntax of this configuration file,
+# see the file kconfig-language.txt in the NuttX tools repository.
+#
+
+if NET_IPv4
+menu "ICMP Networking Support"
+
+config NET_ICMP
+	bool "Enable ICMP networking"
+	default n
+	---help---
+		Enable minimal ICMP support. Includes built-in support
+		for sending replies to received ECHO (ping) requests.
+
+if NET_ICMP
+
+config NET_ICMP_PING
+	bool "ICMP ping interfaces"
+	default n
+	depends on BUILD_FLAT
+	---help---
+		Provide interfaces to support application level support for
+		for sending ECHO (ping) requests and associating ECHO replies.
+
+		NOTE: Calling these interfaces from application space is a
+		violation of the OS/application interface but for historical
+		reasons, is permitted in the flat build.
+
+endif # NET_ICMP
+endmenu # ICMP Networking Support
+endif # NET_IPv4
