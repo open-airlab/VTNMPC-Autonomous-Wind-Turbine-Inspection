@@ -15,18 +15,14 @@ Follow the following tutorial
 Clone directory in the home folder
 ```bash
 cd
-git clone https://github.com/abdelhakim96/Wind-Turbine-Inspection
+git clone git@github.com:open-airlab/VTNMPC-Autonomous-Wind-Turbine-Inspection.git
 ```
 Download the PX4 folder from here: [PX4 files download](https://drive.google.com/file/d/1BpnlglYMQI5q9lEwMCPNLGjPj5mzCoe5/view?usp=sharing) 
 and place it inside the Wind-Turbine-Inspection folder
 
 
-Clone the WTI_catkin inside the catkin_ws
+copy the folder the WTI_catkin inside the catkin_ws
 
-```bash
-cd catkin_ws/src
-git clone git@github.com:abdelhakim96/WTI_catkin.git
-```
 Switch to the most recent branch using git checkout
 
 
