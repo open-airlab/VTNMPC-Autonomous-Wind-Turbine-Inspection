@@ -1,5 +1,5 @@
 # Autonomous Wind Turbine Inspection Framework Enabled by Visual Tracking Nonlinear Model Predictive Control (VT-NMPC)
-![My Image](abstract.png)
+![My Image](abstract_vtmpc.png)
 
 This repository contains the code and simulation files for the autonomous wind turbine inspection project. For this purpose, a time optimal path planner and a Visual tracking MPC is developed. Link to paper:
 
