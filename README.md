@@ -3,6 +3,9 @@
 
 This repository contains the code and simulation files for the submitted paper title "Autonomous Wind Turbine Inspection Framework Enabled by Visual Tracking Nonlinear Model Predictive Control (VT-NMPC)". For this purpose, a time optimal path planner and a Visual tracking MPC is developed. Link to paper:
 
+
+We provide a general inspection framework, that takes the dimensions of the wind turbine as input, and provides the optimal attitude rate and thrust command to the drone to acheive time optimal coverage. 
+
 **Installation instructions:**
 
  Install [Ubuntu 18.04](https://releases.ubuntu.com/18.04/)  and [ROS melodic](http://wiki.ros.org/melodic/Installation/Ubuntu) 
