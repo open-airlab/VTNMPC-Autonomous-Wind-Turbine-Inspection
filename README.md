@@ -79,8 +79,7 @@ offboard
 
 The drone will take off.
 
-
-Next: launch the VT-MPC.
+**Launching the VT-NMPC:**
 
 ```bash
 roslaunch quaternion_point_traj_nmpc quaternion_point_traj_nmpc.launch
@@ -91,7 +90,7 @@ roslaunch quaternion_point_traj_nmpc quaternion_point_traj_nmpc.launch
 
 
 
-Adding wind to the simulation
+**Adding wind to the simulation**
 ```bash
 roslaunch dji_m100_trajectory windgen_recdata.launch
 ```
