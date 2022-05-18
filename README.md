@@ -114,7 +114,16 @@ rosrun dji_m100_trajectory GP_statemachine
 
 
 
-
+**TODO**
+- clean the repo from unnecassary folders
+- rename and the reorganize the nmpc controller structures
+- Recheck the installation instructions and test it 
+- Add the inspection process launching instructions 
+- Add images to the simulation launch instructions
+- Add description of the framework and simulation environment
+- Add descirption of the different controllers
+- Add descirption of the path planner 
+-
 
 
 
