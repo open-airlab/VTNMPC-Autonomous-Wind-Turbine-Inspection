@@ -1,3 +1,0 @@
-ifeq ($(CONFIG_EXAMPLES_DAC),y)
-CONFIGURED_APPS += examples/dac
-endif

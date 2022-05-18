@@ -1,4 +1,0 @@
-ifeq ($(CONFIG_INTERPRETERS_BAS),y)
-CONFIGURED_APPS += interpreters/bas
-endif
-
