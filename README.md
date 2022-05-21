@@ -127,8 +127,8 @@ rosrun dji_m100_trajectory GP_statemachine
 - Add the inspection process launching instructions 
 - Add images to the simulation launch instructions
 - Add description of the framework and simulation environment
-- Add descirption of the different controllers
-- Add descirption of the path planner 
+- Add description of the different controllers
+- Add description of the path planner 
 -
 
 
