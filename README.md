@@ -36,6 +36,8 @@ Switch to the most recent branch using git checkout
 Download mavros dependecies
 ```bash
 sudo apt-get install ros-melodic-mavros*
+sudo apt-get install xdotool
+sudo apt-get ros-mavros-mav-msgs 
 ```
 
 Build workspace
@@ -45,9 +47,8 @@ cd catkin_make
 ```
 
 
-Download dependecies and setup px4:
+ setup px4:
 ```bash
-sudo apt-get ros-mavros-mav-msgs 
 cd Wind-Turbine-Inspection
 ./install_dependencies_and_setup_px4_modified.sh
 ```
