@@ -27,10 +27,16 @@ Download the PX4 folder from here: [PX4 files download](https://drive.google.com
 and place it inside the Wind-Turbine-Inspection folder
 
 
+
 copy the folder the WTI_catkin inside the catkin_ws
 
 Switch to the most recent branch using git checkout
 
+
+Download mavros dependecies
+```bash
+sudo apt-get install ros-melodic-mavros*
+```
 
 Build workspace
 ```bash
