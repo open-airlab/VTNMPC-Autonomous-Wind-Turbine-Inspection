@@ -127,8 +127,6 @@ rosrun dji_m100_trajectory GP_statemachine
 
 
 
--
-
 
 
 
