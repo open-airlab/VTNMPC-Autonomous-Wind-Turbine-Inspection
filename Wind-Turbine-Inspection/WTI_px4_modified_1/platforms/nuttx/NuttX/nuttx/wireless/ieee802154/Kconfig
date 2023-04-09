@@ -1,0 +1,255 @@
+#
+# For a description of the syntax of this configuration file,
+# see the file kconfig-language.txt in the NuttX tools repository.
+#
+
+menuconfig WIRELESS_IEEE802154
+	bool "IEEE 802.15.4 Support"
+	default n
+	select MM_IOB
+	depends on WIRELESS
+	---help---
+		Enables a Media Access Controller for any IEEE802.15.4 radio
+		device. This in turn can be used by higher layer entities
+		such as 6lowpan.
+
+if WIRELESS_IEEE802154
+
+config IEEE802154_DEFAULT_EADDR
+	hex "IEEE 802.15.4 Default Extended Address"
+	default 0x00fade00deadbeef
+	---help---
+		Set the default extended address to be used by MAC networks on init
+
+choice
+	prompt "IEEE 802.15.4 work queue"
+	default MAC802154_HPWORK if SCHED_HPWORK
+	default MAC802154_LPWORK if !SCHED_HPWORK && SCHED_LPWORK
+	depends on SCHED_WORKQUEUE
+	---help---
+		Work queue support is required to use the IEEE 802.15.4 MAC layer.
+		If the high priority work queue is available, then it should be used by
+		the driver.
+
+		WARNING!! The IEEE802.15.4 network device must never run on the same
+		work queue as does the IEEE 802.15.4 MAC.  That configuration will
+		cause deadlocks:  The network logic may be blocked on the work queue
+		waiting on resources that can only be freed by the MAC logic but the
+		MAC is unable to run because the work queue is blocked.  The
+		recommended configuration is:  Network on the LP work queue; MAC on HP
+		work queue.  Blocking on the HP work queue is a very bad thing in
+		any case.
+
+config MAC802154_HPWORK
+	bool "High priority"
+	depends on SCHED_HPWORK
+
+config MAC802154_LPWORK
+	bool "Low priority"
+	depends on SCHED_LPWORK
+
+endchoice # Work queue
+
+config MAC802154_NTXDESC
+	int "Number or TX descriptors"
+	default 3
+	---help---
+		Configured number of Tx descriptors. Default: 3
+
+		When used with 6LoWPAN, the descriptor allocator runs on a work
+		and must avoid blocking if possible.  Each frame will be provided in
+		an IOB and each TX frame will need a TX descriptor.  So the safe
+		thing to do is set CONFIG_MAC802154_NTXDESC to CONFIG_IOB_NBUFFERS.
+		Then there should be the maximum pre-allocated buffers for each
+		possible TX frame.
+
+config MAC802154_NNOTIF
+	int "Number or notification structures"
+	default 3
+	---help---
+		Configured number of notification strucures Default: 3
+
+		When various MAC management events occur, the MAC notifies the registered
+		receiver with an allocated notification structure indicating the event. The
+		events are primitives such as Association Indication etc.
+
+config MAC802154_NPANDESC
+	int "Number of PAN descriptors"
+	default 5
+	---help---
+		Configured number of PAN descriptors Default: 5
+
+		When performing a scan to find a suitable PAN, the MAC must store
+		information for all unique beacons received. This is the number of unique
+		descriptors that can be held before the scan cancels with LIMIT_REACHED.
+
+config MAC802154_SFEVENT_VERBOSE
+	bool "Verbose logging related to superframe events"
+	default n
+	depends on DEBUG_WIRELESS_INFO
+	---help---
+		Enable verbose logging of superframe events Default: false
+
+config MAC802154_LOCK_VERBOSE
+	bool "Verbose logging related to MAC lock management"
+	default n
+	depends on DEBUG_WIRELESS_INFO
+	---help---
+		Enable verbose logging of MAC lock management. Default: false
+
+config IEEE802154_IND_PREALLOC
+	int "Number of pre-allocated meta-data structures"
+	default 20
+	---help---
+		This specifies the total number of preallocated meta data structures
+		must be allocated with each incoming packet.  These may be allocated
+		from either from tasking logic or from interrupt level logic.
+
+config IEEE802154_IND_IRQRESERVE
+	int "Reserved pre-allocated meta-data structures"
+	default 0
+	depends on EXPERIMENTAL
+	---help---
+		If meta-data structures can be allocated from interrupt handlers,
+		then this specifies the number of pre-allocatd meta-data structures
+		that are reserved for for use only by interrupt handlers.  This may
+		be zero to reserve no meta-data structures for interrupt handlers.
+		In that case, the allocation will fail if tasking logic has
+		allocated them all.
+
+		Interrupt logic will first attempt to allocate from the general,
+		pre-allocated structure pool that will contain up to (size
+		CONFIG_IEEE802154_IND_PREALLOC - CONFIG_IEEE802154_IND_IRQRESERVE)
+		entries.  If that fails, then it will try to take a structure from
+		the reserve (size CONFIG_IEEE802154_IND_IRQRESERVE).
+
+		Non-interrupt logic will also first attempt to allocate from the
+		general, pre-allocated structure pool.  If that fails, it will
+		dynamically allocate the meta data structure with an additional cost
+		in performance.
+
+		NOTE: Currently marked as experimental and with a default of zero
+		because there are no interrupt level allocations performed by the
+		current IEEE 802.15.4 MAC code.
+
+config IEEE802154_MACDEV
+	bool "Character driver for IEEE 802.15.4 MAC layer"
+	default n
+	depends on WIRELESS_IEEE802154
+	---help---
+		Enable the device driver to expose the IEEE 802.15.4 MAC layer
+		access to user space as IOCTLs
+
+if IEEE802154_MACDEV
+
+config IEEE802154_MACDEV_RECVRPRIO
+	int "Priority of frame receiver registerd with the MAC layer"
+	default 0
+	---help---
+		When the MAC layer receives an incoming data frame, it passes the frame
+		to registered receivers, in order of receiver priority, until one of the
+		receivers claim the frame.
+
+		An example case would be when 6LoWPAN and the MAC character driver are
+		enabled. Both have receivers registered with the MAC. The 6LoWPAN layer
+		should get assigned a higher priority than the character driver. In this
+		case, the 6LoWPAN receiver will receive the frame first. If the frame is
+		a 6LoWPAN frame, it will claim the frame and the MAC will not pass the
+		frame to any additional receivers. If it does not claim the frame, the
+		MAC layer will call the next highest priority receiver, in this case,
+		the MAC character driver (which should always be lowest priority since
+		it is a "catch-all" type receiver).
+
+endif # IEEE802154_MACDEV
+
+config IEEE802154_NETDEV
+	bool "IEEE802154 6LoWPAN Network Device"
+	default n
+	depends on NET_6LOWPAN || NET_IEEE802154
+	select ARCH_HAVE_NETDEV_STATISTICS
+	---help---
+		Add support for the IEEE802.15.4 6LoWPAN network device built on
+		the common IEEE802.15.4 MAC.
+
+if IEEE802154_NETDEV
+
+config IEEE802154_NETDEV_RECVRPRIO
+	int "Priority of frame receiver registerd with the MAC layer"
+	default 1
+	---help---
+		When the MAC layer receives an incoming data frame, it passes the frame
+		to registered receivers, in order of receiver priority, until one of the
+		receivers claim the frame.
+
+		An example case would be when 6LoWPAN and the MAC character driver are
+		enabled. Both have receivers registered with the MAC. The 6LoWPAN layer
+		should get assigned a higher priority than the character driver. In this
+		case, the 6LoWPAN receiver will receive the frame first. If the frame is
+		a 6LoWPAN frame, it will claim the frame and the MAC will not pass the
+		frame to any additional receivers. If it does not claim the frame, the
+		MAC layer will call the next highest priority receiver, in this case,
+		the MAC character driver (which should always be lowest priority since
+		it is a "catch-all" type receiver).
+
+choice
+	prompt "Work queue"
+	default IEEE802154_NETDEV_LPWORK if SCHED_LPWORK
+	default IEEE802154_NETDEV_HPWORK if !SCHED_LPWORK && SCHED_HPWORK
+	depends on SCHED_WORKQUEUE
+	---help---
+		Work queue support is required to use the IEEE802.15.4 network
+		driver.  If the low priority work queue is available, then it should
+		be used by the loopback driver.
+
+		WARNING!! The IEEE802.15.4 network device must never run on the same
+		work queue as does the IEEE 802.15.4 MAC.  That configuration will
+		cause deadlocks:  The network logic may be blocked on the work queue
+		waiting on resources that can only be freed by the MAC logic but the
+		MAC is unable to run because the work queue is blocked.  The
+		recommended configuration is:  Network on the LP work queue; MAC on HP
+		work queue.  Blocking on the HP work queue is a very bad thing in
+		any case.
+
+config IEEE802154_NETDEV_HPWORK
+	bool "High priority"
+	depends on SCHED_HPWORK
+
+config IEEE802154_NETDEV_LPWORK
+	bool "Low priority"
+	depends on SCHED_LPWORK
+
+endchoice # Work queue
+endif # IEEE802154_NETDEV
+
+config IEEE802154_LOOPBACK
+	bool "IEEE802154 6LoWPAN Loopback"
+	default n
+	depends on NET_6LOWPAN || NET_IEEE802154
+	select ARCH_HAVE_NETDEV_STATISTICS
+	---help---
+		Add support for the IEEE802.15.4 6LoWPAN Loopback test device.
+
+if IEEE802154_LOOPBACK
+
+choice
+	prompt "Work queue"
+	default IEEE802154_LOOPBACK_LPWORK if SCHED_LPWORK
+	default IEEE802154_LOOPBACK_HPWORK if !SCHED_LPWORK && SCHED_HPWORK
+	depends on SCHED_WORKQUEUE
+	---help---
+		Work queue support is required to use the loopback driver.  If the
+		low priority work queue is available, then it should be used by the
+		loopback driver.
+
+config IEEE802154_LOOPBACK_HPWORK
+	bool "High priority"
+	depends on SCHED_HPWORK
+
+config IEEE802154_LOOPBACK_LPWORK
+	bool "Low priority"
+	depends on SCHED_LPWORK
+
+endchoice # Work queue
+endif # IEEE802154_LOOPBACK
+
+endif # WIRELESS_IEEE802154

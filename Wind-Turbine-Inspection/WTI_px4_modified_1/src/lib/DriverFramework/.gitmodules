@@ -1,0 +1,3 @@
+[submodule "dspal"]
+	path = dspal
+	url = https://github.com/ATLFlight/dspal

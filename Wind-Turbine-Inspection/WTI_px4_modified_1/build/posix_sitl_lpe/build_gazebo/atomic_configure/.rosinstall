@@ -1,0 +1,2 @@
+- setup-file:
+    local-name: /home/hakim/Wind-Turbine-Inspection/WTI_px4_modified/build/posix_sitl_lpe/build_gazebo/devel/setup.sh

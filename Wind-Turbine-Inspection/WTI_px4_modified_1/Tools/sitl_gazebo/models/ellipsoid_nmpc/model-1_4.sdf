@@ -1,0 +1,38 @@
+<?xml version="1.0" ?>
+<sdf version="1.5">
+  <model name="ellipsoid_nmpc">
+    <pose>1.0 1.10 1.15 0 0 0</pose>  <!-- <pose>0 0 0.75 0 0 0</pose> -->
+    <static>1</static>
+    <link name="ellipsoid_link">
+      <collision name="ellipsoid_link_collision">
+	<geometry>
+	    <box>
+               <size>0.5 1.0 0.5</size>
+            </box>
+	</geometry>
+	<surface>
+	   <contact>
+	      <ode/>
+	   </contact>
+	   <friction>
+	      <ode/>
+	   </friction>
+	</surface>
+      </collision>
+      <visual name="ellipsoid_visual">
+        <geometry>
+	   <mesh>
+	     <uri>model://ellipsoid_nmpc/meshes/ellipsoid.stl</uri>
+             <scale>1 1 1</scale>
+	   </mesh>
+        </geometry>
+      </visual>  
+      <self_collide>0</self_collide>
+    </link>
+  </model>
+</sdf>
+
+
+   
+
+

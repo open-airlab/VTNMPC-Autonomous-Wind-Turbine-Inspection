@@ -1,0 +1,41 @@
+Determining if the pthread_create exist failed with the following output:
+Change Dir: /home/hakim/Wind-Turbine-Inspection/WTI_px4_modified/build/posix_sitl_lpe/build_gazebo/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/ninja" "cmTC_28ce5"
+[1/2] Building C object CMakeFiles/cmTC_28ce5.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_28ce5
+FAILED: cmTC_28ce5 
+: && /usr/lib/ccache/cc    CMakeFiles/cmTC_28ce5.dir/CheckSymbolExists.c.o  -o cmTC_28ce5   && :
+CMakeFiles/cmTC_28ce5.dir/CheckSymbolExists.c.o: In function `main':
+CheckSymbolExists.c:(.text+0x1b): undefined reference to `pthread_create'
+collect2: error: ld returned 1 exit status
+ninja: build stopped: subcommand failed.
+
+File /home/hakim/Wind-Turbine-Inspection/WTI_px4_modified/build/posix_sitl_lpe/build_gazebo/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <pthread.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef pthread_create
+  return ((int*)(&pthread_create))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/hakim/Wind-Turbine-Inspection/WTI_px4_modified/build/posix_sitl_lpe/build_gazebo/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/ninja" "cmTC_0b637"
+[1/2] Building C object CMakeFiles/cmTC_0b637.dir/CheckFunctionExists.c.o
+[2/2] Linking C executable cmTC_0b637
+FAILED: cmTC_0b637 
+: && /usr/lib/ccache/cc -DCHECK_FUNCTION_EXISTS=pthread_create   CMakeFiles/cmTC_0b637.dir/CheckFunctionExists.c.o  -o cmTC_0b637  -lpthreads && :
+/usr/bin/ld: cannot find -lpthreads
+collect2: error: ld returned 1 exit status
+ninja: build stopped: subcommand failed.
+
+

@@ -1,0 +1,14 @@
+# Target labels
+ sitl_gazebo
+# Source files and their labels
+/home/hakim/Wind-Turbine-Inspection/WTI_px4_modified/build/posix_sitl_lpe/platforms/posix/CMakeFiles/sitl_gazebo
+/home/hakim/Wind-Turbine-Inspection/WTI_px4_modified/build/posix_sitl_lpe/platforms/posix/CMakeFiles/sitl_gazebo.rule
+/home/hakim/Wind-Turbine-Inspection/WTI_px4_modified/build/posix_sitl_lpe/platforms/posix/CMakeFiles/sitl_gazebo-complete.rule
+/home/hakim/Wind-Turbine-Inspection/WTI_px4_modified/build/posix_sitl_lpe/external/Stamp/sitl_gazebo/sitl_gazebo-install.rule
+/home/hakim/Wind-Turbine-Inspection/WTI_px4_modified/build/posix_sitl_lpe/external/Stamp/sitl_gazebo/sitl_gazebo-mkdir.rule
+/home/hakim/Wind-Turbine-Inspection/WTI_px4_modified/build/posix_sitl_lpe/external/Stamp/sitl_gazebo/sitl_gazebo-download.rule
+/home/hakim/Wind-Turbine-Inspection/WTI_px4_modified/build/posix_sitl_lpe/external/Stamp/sitl_gazebo/sitl_gazebo-update.rule
+/home/hakim/Wind-Turbine-Inspection/WTI_px4_modified/build/posix_sitl_lpe/external/Stamp/sitl_gazebo/sitl_gazebo-patch.rule
+/home/hakim/Wind-Turbine-Inspection/WTI_px4_modified/build/posix_sitl_lpe/external/Stamp/sitl_gazebo/sitl_gazebo-configure.rule
+/home/hakim/Wind-Turbine-Inspection/WTI_px4_modified/build/posix_sitl_lpe/external/Stamp/sitl_gazebo/sitl_gazebo-build.rule
+/home/hakim/Wind-Turbine-Inspection/WTI_px4_modified/build/posix_sitl_lpe/external/Stamp/sitl_gazebo/sitl_gazebo-forceconfigure.rule

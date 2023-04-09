@@ -1,0 +1,43 @@
+# Build and autotest script for DriverFramework
+# http://travis-ci.org
+
+language: cpp
+
+matrix:
+  fast_finish: true
+  include:
+    - os: linux
+      dist: trusty
+      sudo: false
+      compiler: gcc
+    - os: linux
+      dist: trusty
+      sudo: false
+      compiler: clang
+    - os: osx
+      osx_image: xcode8
+      sudo: true
+
+addons:
+  apt:
+    sources:
+    - kubuntu-backports
+    - ubuntu-toolchain-r-test
+    - george-edison55-precise-backports
+    packages:
+    - build-essential
+    - clang-3.5
+    - cmake
+
+before_script:
+  - export PATH=~/bin:$PATH
+  - if [ "${TRAVIS_OS_NAME}" = "osx" ]; then
+      brew update;
+      brew install astyle;
+    fi
+
+script:
+  - if [ "${TRAVIS_OS_NAME}" = "osx" ]; then
+      make check-style;
+    fi
+  - make run

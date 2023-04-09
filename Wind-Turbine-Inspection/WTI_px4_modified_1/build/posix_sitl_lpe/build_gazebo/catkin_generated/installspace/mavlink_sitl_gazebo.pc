@@ -1,0 +1,8 @@
+prefix=/usr/local
+
+Name: mavlink_sitl_gazebo
+Description: Description of mavlink_sitl_gazebo
+Version: 1.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

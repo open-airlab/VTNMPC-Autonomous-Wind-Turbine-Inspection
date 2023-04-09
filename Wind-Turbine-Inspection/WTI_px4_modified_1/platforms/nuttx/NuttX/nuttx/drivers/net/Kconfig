@@ -1,0 +1,565 @@
+#
+# For a description of the syntax of this configuration file,
+# see the file kconfig-language.txt in the NuttX tools repository.
+#
+
+comment "General Ethernet MAC Driver Options"
+
+config NETDEV_LOOPBACK
+	bool
+	default n if !NET_LOOPBACK
+	default y if NET_LOOPBACK
+	select ARCH_HAVE_NETDEV_STATISTICS
+	---help---
+		Add support for the local network loopback device, lo.
+
+if NETDEV_LOOPBACK
+
+choice
+	prompt "Work queue"
+	default LOOPBACK_LPWORK if SCHED_LPWORK
+	default LOOPBACK_HPWORK if !SCHED_LPWORK && SCHED_HPWORK
+	depends on SCHED_WORKQUEUE
+	---help---
+		Work queue support is required to use the loopback driver.  If the
+		low priority work queue is available, then it should be used by the
+		loopback driver.
+
+config LOOPBACK_HPWORK
+	bool "High priority"
+	depends on SCHED_HPWORK
+
+config LOOPBACK_LPWORK
+	bool "Low priority"
+	depends on SCHED_LPWORK
+
+endchoice # Work queue
+endif # NETDEV_LOOPBACK
+
+config NETDEV_TELNET
+	bool "Telnet driver"
+	default n
+	depends on NET && NET_TCP
+	---help---
+		The Telnet driver generates a character driver instance to support a
+		Telnet session.  This driver is used by the Telnet daemon.  The
+		Telnet daeman will instantiate a new Telnet driver to support
+		standard I/O on the new Telnet session.
+
+if NETDEV_TELNET
+
+config TELNET_RXBUFFER_SIZE
+	int "Telnet RX buffer size"
+	default 256
+
+config TELNET_TXBUFFER_SIZE
+	int "Telnet TX buffer size"
+	default 256
+
+config TELNET_DUMPBUFFER
+	bool "Dump Telnet buffers"
+	default n
+	depends on DEBUG_NET
+
+endif # NETDEV_TELNET
+
+config ARCH_HAVE_NETDEV_STATISTICS
+	bool
+	default n
+
+config NETDEV_STATISTICS
+	bool "Network device driver statistics"
+	depends on NET_STATISTICS && ARCH_HAVE_NETDEV_STATISTICS
+	---help---
+		Enable to collect statistics from the network drivers (if supported
+		by the network driver).
+
+config NETDEV_LATEINIT
+	bool "Late driver initialization"
+	default n
+	---help---
+		Normally, networking initialization occur in the later phase of the
+		boot process in the function up_initialize() when it calls the
+		driver initialization function, up_netintialize().  This
+		initialization occurs after a sufficient about of the OS has been
+		initialized so that driver registration can be performed, but
+		before the completion of OS initialization and before the first
+		application is started.
+
+		In a few situations, however, you may want to suppress this early
+		network driver initialization.  As examples:
+
+			- If you are using SLIP or PPPD, then there will be no network
+			  driver to be initialized,
+			- Certain multi-network configurations where a simple call to
+			  up_netinitialize() may be insufficient, and
+			- Situations where there are other board-level hardware
+			  dependencies so that the hardware is not in an appropriate
+			  state for up_netinitialize() to be called.
+
+		Examples of this latter situation includes such things as network
+		drivers that required some setup via an I2C I/O expander, or network
+		drivers that depend on USB, SPI, I2C, PCI, serial, or other
+		interfaces that may not be ready when up_netiniailize() is normally
+		called.
+
+config NET_DUMPPACKET
+	bool "Enable packet dumping"
+	depends on DEBUG_FEATURES
+	default n
+	---help---
+		Some Ethernet MAC drivers supporting dumping of received and
+		transmitted packets as a debug option.  This setting enables that
+		debug option. Also needs CONFIG_DEBUG_FEATURES.
+
+comment "External Ethernet MAC Device Support"
+
+menuconfig NET_DM90x0
+	bool "Davicom dm9000/dm9010 support"
+	default n
+	select ARCH_HAVE_NETDEV_STATISTICS
+	---help---
+		References: Davicom data sheets (DM9000-DS-F03-041906.pdf,
+		DM9010-DS-F01-103006.pdf) and looking at lots of other DM90x0
+		drivers.
+
+if NET_DM90x0
+
+config DM9X_BASE
+	hex "DM90x0 base address"
+	default 0x0
+
+config DM9X_IRQ
+	int "DM90x0 IRQ number"
+	default 0
+
+choice
+	prompt "DM90x0 bus width"
+	default DM9X_BUSWIDTH16
+
+config DM9X_BUSWIDTH8
+	bool "8-bits"
+
+config DM9X_BUSWIDTH16
+	bool "16-bits"
+
+config DM9X_BUSWIDTH32
+	bool "32-bits"
+
+endchoice # DM90x0 bus width
+
+config DM9X_CHECKSUM
+	bool "Checksum enable"
+	default n
+
+config DM9X_ETRANS
+	bool "TX poll"
+	default n
+
+choice
+	prompt "DM90x0 mode"
+	default DM9X_MODE_AUTO
+
+config DM9X_MODE_AUTO
+	bool "Autonegotion"
+
+config DM9X_MODE_10MHD
+	bool "10BaseT half duplex"
+
+config DM9X_MODE_10MFD
+	bool "10BaseT full duplex"
+
+config DM9X_MODE_100MHD
+	bool "100BaseT half duplex"
+
+config DM9X_MODE_100MFD
+	bool "100BaseT full duplex"
+
+endchoice # DM90x0 mode
+
+config DM9X_NINTERFACES
+	int "Nubmer of DM90x0 interfaces"
+	default 1
+	depends on EXPERIMENTAL
+
+choice
+	prompt "Work queue"
+	default DM9X_LPWORK if SCHED_LPWORK
+	default DM9X_HPWORK if !SCHED_LPWORK && SCHED_HPWORK
+	depends on SCHED_WORKQUEUE
+	---help---
+		Work queue support is required to use the Ethernet driver.  If the
+		low priority work queue is available, then it should be used by the
+		driver.
+
+config DM9X_HPWORK
+	bool "High priority"
+	depends on SCHED_HPWORK
+
+config DM9X_LPWORK
+	bool "Low priority"
+	depends on SCHED_LPWORK
+
+endchoice # Work queue
+
+endif # NET_DM90x0
+
+config NET_CS89x0
+	bool "CS89x0 support"
+	default n
+	depends on EXPERIMENTAL
+	select ARCH_HAVE_NETDEV_STATISTICS
+	---help---
+		Under construction -- do not use
+
+menuconfig ENC28J60
+	bool "Microchip ENC28J60 support"
+	default n
+	select SPI
+	select ARCH_HAVE_NETDEV_STATISTICS
+	---help---
+		References:
+		ENC28J60 Data Sheet, Stand-Alone Ethernet Controller with SPI Interface,
+		DS39662C, 2008 Microchip Technology Inc.
+
+if ENC28J60
+
+config ENC28J60_NINTERFACES
+	int "Number of physical ENC28J60"
+	default 1
+	range 1,1
+	---help---
+		Specifies the number of physical ENC28J60
+		devices that will be supported.
+
+config ENC28J60_SPIMODE
+	int "SPI mode"
+	default 0
+	---help---
+		Controls the SPI mode.  The ENC28J60 spec says that it supports SPI
+		mode 0,0 only: "The implementation used on this device supports SPI
+		mode 0,0 only. In addition, the SPI port requires that SCK be at Idle
+		in a low state; selectable clock polarity is not supported."
+		However, sometimes you need to tinker with these things.
+
+config ENC28J60_FREQUENCY
+	int "SPI frequency"
+	default 20000000
+	---help---
+		Define to use a different bus frequency
+
+choice
+	prompt "Work queue"
+	default ENC28J60_LPWORK if SCHED_LPWORK
+	default ENC28J60_HPWORK if !SCHED_LPWORK && SCHED_HPWORK
+	depends on SCHED_WORKQUEUE
+	---help---
+		Work queue support is required to use the ENC28J60 driver.  If the
+		low priority work queue is available, then it should be used by the
+		ENC28J60 driver.
+
+config ENC28J60_HPWORK
+	bool "High priority"
+	depends on SCHED_HPWORK
+
+config ENC28J60_LPWORK
+	bool "Low priority"
+	depends on SCHED_LPWORK
+
+endchoice # Work queue
+
+config ENC28J60_HALFDUPPLEX
+	bool "Enable half dupplex"
+	default n
+	---help---
+		Default is full duplex
+
+config ENC28J60_DUMPPACKET
+	bool "Dump Packets"
+	default n
+	---help---
+		If selected, the ENC28J60 driver  will dump the contents of each
+		packet to the console.
+
+config ENC28J60_REGDEBUG
+	bool "Register-Level Debug"
+	default n
+	depends on DEBUG_FEATURES && DEBUG_NET
+	---help---
+		Enable very low-level register access debug.  Depends on
+		CONFIG_DEBUG_FEATURES and CONFIG_DEBUG_NET.
+
+endif # ENC28J60
+
+menuconfig ENCX24J600
+	bool "Microchip ENCX24J600 support"
+	default n
+	select SPI
+	select ARCH_HAVE_NETDEV_STATISTICS
+	---help---
+		References:
+		ENC424J600/624J600 Data Sheet Stand-Alone 10/100 Ethernet Controller
+		with SPI or Parallel Interface DS39935B, 2009 Microchip Technology Inc.
+
+if ENCX24J600
+
+config ENC28J60_NINTERFACES
+	int "Number of physical ENCX24J600"
+	default 1
+	range 1,1
+	---help---
+		Specifies the number of physical ENCX24J600
+		devices that will be supported.
+
+config ENCX24J600_SPIMODE
+	int "SPI mode"
+	default 0
+	---help---
+		Controls the SPI mode.  The ENCX24J600 spec says that it supports SPI
+		mode 0,0 only: "The implementation used on this device supports SPI
+		mode 0,0 only. In addition, the SPI port requires that SCK be at Idle
+		in a low state; selectable clock polarity is not supported."
+		However, sometimes you need to tinker with these things.
+
+config ENCX24J600_FREQUENCY
+	int "SPI frequency"
+	default 14000000
+	---help---
+		Define to use a different bus frequency
+
+config ENCX24J600_NRXDESCR
+	int "Descriptor Count"
+	default 8
+	---help---
+		Defines how many descriptors are preallocated for the
+		transmission and reception queues.
+		The ENC has a relative large packet buffer of 24kB which can
+		be used to buffer multiple packets silmutaneously
+
+choice
+	prompt "Work queue"
+	default ENCX24J600_LPWORK if SCHED_LPWORK
+	default ENCX24J600_HPWORK if !SCHED_LPWORK && SCHED_HPWORK
+	depends on SCHED_WORKQUEUE
+	---help---
+		Work queue support is required to use the ENCX24J600 driver.  If the
+		low priority work queue is available, then it should be used by the
+		ENCX24J600 driver.
+
+config ENCX24J600_HPWORK
+	bool "High priority"
+	depends on SCHED_HPWORK
+
+config ENCX24J600_LPWORK
+	bool "Low priority"
+	depends on SCHED_LPWORK
+
+endchoice # Work queue
+
+config ENCX24J600_DUMPPACKET
+	bool "Dump Packets"
+	default n
+	---help---
+		If selected, the ENCX24J600 driver  will dump the contents of each
+		packet to the console.
+
+config ENCX24J600_REGDEBUG
+	bool "Register-Level Debug"
+	default n
+	depends on DEBUG_FEATURES && DEBUG_NET
+	---help---
+		Enable very low-level register access debug.  Depends on
+		CONFIG_DEBUG_FEATURES and CONFIG_DEBUG_NET.
+
+endif # ENCX24J600
+
+menuconfig NET_SLIP
+	bool "SLIP (serial line) support"
+	default n
+	select ARCH_HAVE_NETDEV_STATISTICS
+	---help---
+		Reference: RFC 1055
+
+if NET_SLIP
+
+config NET_SLIP_STACKSIZE
+	int "Daemon stack size"
+	default 2048
+	---help---
+		Provides the stack size for SLIP RX and TX.
+
+config NET_SLIP_DEFPRIO
+	int "Daemon priority"
+	default 128
+	---help---
+		Provides the priority for SLIP RX and TX threads.
+
+config NET_SLIP_NINTERFACES
+	int "Number of SLIP interfaces"
+	default 1
+	---help---
+		Determines the number of physical interfaces that will be supported.
+
+endif
+
+menuconfig NET_FTMAC100
+	bool "Faraday 10/100 Ethernet"
+	default n
+	---help---
+		Faraday 10/100 Ethernet support.
+
+if NET_FTMAC100
+
+config FTMAC100_BASE
+	hex "FTMAC100 base address"
+	default 0x0
+
+config FTMAC100_IRQ
+	int "FTMAC100 IRQ number"
+	default 0
+
+config FTMAC100_RX_DESC
+	int "Number of RX descriptors"
+	default 64
+
+config FTMAC100_TX_DESC
+	int "Number of TX descriptors"
+	default 32
+
+config FTMAC100_MAC0_ENV_ADDR
+	hex "MAC0 address location"
+	default 0
+
+choice
+	prompt "Work queue"
+	default FTMAC100_LPWORK if SCHED_LPWORK
+	default FTMAC100_HPWORK if !SCHED_LPWORK && SCHED_HPWORK
+	depends on SCHED_WORKQUEUE
+	---help---
+		Work queue support is required to use the FTMAC100 driver.  If the
+		low priority work queue is available, then it should be used by the
+		FTMAC100 driver.
+
+config FTMAC100_HPWORK
+	bool "High priority"
+	depends on SCHED_HPWORK
+
+config FTMAC100_LPWORK
+	bool "Low priority"
+	depends on SCHED_LPWORK
+
+endchoice # Work queue
+
+endif # NET_FTMAC100
+
+if ARCH_HAVE_PHY
+
+comment "External Ethernet PHY Device Support"
+
+config ARCH_PHY_INTERRUPT
+	bool
+	default n
+
+choice
+	prompt "Board PHY Selection (ETH0)"
+	default ETH0_PHY_NONE
+	---help---
+		Identify the PHY on your board.  This setting is not used by all Ethernet
+		drivers nor do all Ethernet drivers support all PHYs.
+
+config ETH0_PHY_NONE
+	bool "No PHY support"
+
+config ETH0_PHY_AM79C874
+	bool "AMD Am79C874 PHY"
+
+config ETH0_PHY_KS8721
+	bool "Micrel KS8721 PHY"
+
+config ETH0_PHY_KSZ8041
+	bool "Micrel KSZ8041 PHY"
+
+config ETH0_PHY_KSZ8051
+	bool "Micrel KSZ8051 PHY"
+
+config ETH0_PHY_KSZ8061
+	bool "Micrel KSZ8061 PHY"
+
+config ETH0_PHY_KSZ8081
+	bool "Micrel KSZ8081 PHY"
+
+config ETH0_PHY_KSZ90x1
+	bool "Micrel KSZ9021/31 PHY"
+
+config ETH0_PHY_DP83848C
+	bool "National Semiconductor DP83848C PHY"
+
+config ETH0_PHY_LAN8720
+	bool "SMSC LAN8720 PHY"
+
+config ETH0_PHY_LAN8740
+	bool "SMSC LAN8740 PHY"
+
+config ETH0_PHY_LAN8740A
+	bool "SMSC LAN8740A PHY"
+
+config ETH0_PHY_LAN8742A
+	bool "SMSC LAN8742A PHY"
+
+config ETH0_PHY_DM9161
+	bool "Davicom DM9161 PHY"
+
+endchoice
+
+choice
+	prompt "Board PHY Selection (ETH1)"
+	default ETH1_PHY_NONE
+	---help---
+		Identify the PHY on your board.  This setting is not used by all Ethernet
+		drivers nor do all Ethernet drivers support all PHYs.
+
+config ETH1_PHY_NONE
+	bool "No PHY support"
+
+config ETH1_PHY_AM79C874
+	 bool "AMD Am79C874 PHY"
+
+config ETH1_PHY_KS8721
+	bool "Micrel KS8721 PHY"
+
+config ETH1_PHY_KSZ8041
+	bool "Micrel KSZ8041 PHY"
+
+config ETH1_PHY_KSZ8051
+	bool "Micrel KSZ8051 PHY"
+
+config ETH1_PHY_KSZ8081
+	bool "Micrel KSZ8081 PHY"
+
+config ETH1_PHY_KSZ90x1
+	bool "Micrel KSZ9021/31 PHY"
+
+config ETH1_PHY_DP83848C
+	bool "National Semiconductor DP83848C PHY"
+
+config ETH1_PHY_LAN8720
+	bool "SMSC LAN8720 PHY"
+
+config ETH1_PHY_DM9161
+	bool "Davicom DM9161 PHY"
+
+endchoice
+
+config NETDEV_PHY_DEBUG
+	bool "PHY debug"
+	default n
+	depends on DEBUG_FEATURES
+	---help---
+		Normally debug output is controlled by DEBUG_NET.  However, that
+		may generate a LOT of debug output, especially if CONFIG_DEBUG_INFO is
+		also selected.  This option is intended to force VERVOSE debug
+		output from certain PHY-related even if DEBUG_NET or CONFIG_DEBUG_INFO
+		are not selected.  This allows for focused, unit-level debug of
+		the NSH network initialization logic.
+
+endif # ARCH_HAVE_PHY

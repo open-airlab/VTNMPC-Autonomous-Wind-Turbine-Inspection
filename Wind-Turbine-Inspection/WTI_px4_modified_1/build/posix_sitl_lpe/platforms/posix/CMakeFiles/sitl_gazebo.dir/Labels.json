@@ -1,0 +1,46 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "/home/hakim/Wind-Turbine-Inspection/WTI_px4_modified/build/posix_sitl_lpe/platforms/posix/CMakeFiles/sitl_gazebo"
+		},
+		{
+			"file" : "/home/hakim/Wind-Turbine-Inspection/WTI_px4_modified/build/posix_sitl_lpe/platforms/posix/CMakeFiles/sitl_gazebo.rule"
+		},
+		{
+			"file" : "/home/hakim/Wind-Turbine-Inspection/WTI_px4_modified/build/posix_sitl_lpe/platforms/posix/CMakeFiles/sitl_gazebo-complete.rule"
+		},
+		{
+			"file" : "/home/hakim/Wind-Turbine-Inspection/WTI_px4_modified/build/posix_sitl_lpe/external/Stamp/sitl_gazebo/sitl_gazebo-install.rule"
+		},
+		{
+			"file" : "/home/hakim/Wind-Turbine-Inspection/WTI_px4_modified/build/posix_sitl_lpe/external/Stamp/sitl_gazebo/sitl_gazebo-mkdir.rule"
+		},
+		{
+			"file" : "/home/hakim/Wind-Turbine-Inspection/WTI_px4_modified/build/posix_sitl_lpe/external/Stamp/sitl_gazebo/sitl_gazebo-download.rule"
+		},
+		{
+			"file" : "/home/hakim/Wind-Turbine-Inspection/WTI_px4_modified/build/posix_sitl_lpe/external/Stamp/sitl_gazebo/sitl_gazebo-update.rule"
+		},
+		{
+			"file" : "/home/hakim/Wind-Turbine-Inspection/WTI_px4_modified/build/posix_sitl_lpe/external/Stamp/sitl_gazebo/sitl_gazebo-patch.rule"
+		},
+		{
+			"file" : "/home/hakim/Wind-Turbine-Inspection/WTI_px4_modified/build/posix_sitl_lpe/external/Stamp/sitl_gazebo/sitl_gazebo-configure.rule"
+		},
+		{
+			"file" : "/home/hakim/Wind-Turbine-Inspection/WTI_px4_modified/build/posix_sitl_lpe/external/Stamp/sitl_gazebo/sitl_gazebo-build.rule"
+		},
+		{
+			"file" : "/home/hakim/Wind-Turbine-Inspection/WTI_px4_modified/build/posix_sitl_lpe/external/Stamp/sitl_gazebo/sitl_gazebo-forceconfigure.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"sitl_gazebo"
+		],
+		"name" : "sitl_gazebo"
+	}
+}
