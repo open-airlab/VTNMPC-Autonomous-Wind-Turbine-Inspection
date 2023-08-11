@@ -25,7 +25,7 @@ and place it inside the Wind-Turbine-Inspection folder
 
 copy the folder the WTI_catkin inside the catkin_ws
 
-Switch to the most recent branch using git checkout
+
 
 
 Download mavros dependecies
