@@ -13,11 +13,6 @@ The approach is modular, where the global plan for inspecting is provided throug
 
  Install [Ubuntu 18.04](https://releases.ubuntu.com/18.04/)  and [ROS melodic](http://wiki.ros.org/melodic/Installation/Ubuntu) 
 
-Create SSH key for computer
-
-Follow the following guide
-[Create SSH key](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
-
 Clone directory in the home folder
 ```bash
 cd
@@ -43,7 +38,7 @@ sudo apt-get ros-mavros-mav-msgs
 Build workspace
 ```bash
 cd catkin_ws
-cd catkin_make
+catkin_make
 ```
 
 
