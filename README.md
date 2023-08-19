@@ -1,15 +1,20 @@
 # Autonomous Wind Turbine Inspection Framework Enabled by Visual Tracking Nonlinear Model Predictive Control (VT-NMPC)
-![My Image](abstract_vtmpc.png)
+
+
+<div style="text-align:center">
+  <img src="vtnmpc.gif" alt="VT-NMPC GIF">
+</div>
+
+
+
+
 
 This repository contains the code and simulation files for the submitted paper title "Autonomous Wind Turbine Inspection Framework Enabled by Visual Tracking Nonlinear Model Predictive Control (VT-NMPC)". For this purpose, a time optimal path planner and a Visual tracking MPC is developed. 
 
 
 We provide a general inspection framework, that takes the dimensions of the wind turbine as input, and provides the optimal attitude rate and thrust command to the drone to acheive time optimal coverage. 
 
-
-<div style="text-align:center">
-  <img src="vtnmpc.gif" alt="VT-NMPC GIF">
-</div>
+![My Image](abstract_vtmpc.png)
 
 
 The approach is modular, where the global plan for inspecting is provided through a time optimal graph based path planner. The output of the path planner is sequentially input to a NMPC with visual tracking costs, that allows the drone to acheive optimal pose relative to the surface for best heading, incidence angle and distance from the surface. More details on the method can be found soon through the paper submitted for publication.
