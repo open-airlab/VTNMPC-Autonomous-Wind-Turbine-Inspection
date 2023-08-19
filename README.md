@@ -1,9 +1,10 @@
 # Autonomous Wind Turbine Inspection Framework Enabled by Visual Tracking Nonlinear Model Predictive Control (VT-NMPC)
 
 
-<div style="text-align:center; margin-left: 5cm;">
-  <img src="vtnmpc.gif" alt="VT-NMPC GIF">
-</div>
+
+<p align=right>
+<img width=150 src="vtnmpc.gif" />
+</p>
 
 
 
