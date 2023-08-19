@@ -2,7 +2,7 @@
 
 
 <p align=right>
-<img width=150 src="vtnmpc.gif" />
+<src="vtnmpc.gif" />
 </p>
 
 
