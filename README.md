@@ -138,7 +138,7 @@ rosrun dji_m100_trajectory GP_statemachine
 
 
 # Citation
-
+If you use this framework in your work, please cite the following paper:
 > Amer, Abdelhakim, Mohit Mehndiratta, Jonas le Fevre Sejersen, Huy Xuan Pham, and Erdal Kayacan. (2023). *Visual Tracking Nonlinear Model Predictive Control Method for Autonomous Wind Turbine Inspection.* arXiv preprint arXiv:2310.14030.
 
 
