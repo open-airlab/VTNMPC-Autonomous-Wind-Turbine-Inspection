@@ -137,14 +137,10 @@ rosrun dji_m100_trajectory GP_statemachine
 
 
 
-**Citation**
+# Citation
 
-@article{amer2023visual,
-  title={Visual Tracking Nonlinear Model Predictive Control Method for Autonomous Wind Turbine Inspection},
-  author={Amer, Abdelhakim and Mehndiratta, Mohit and Sejersen, Jonas le Fevre and Pham, Huy Xuan and Kayacan, Erdal},
-  journal={arXiv preprint arXiv:2310.14030},
-  year={2023}
-}
+> Amer, Abdelhakim, Mohit Mehndiratta, Jonas le Fevre Sejersen, Huy Xuan Pham, and Erdal Kayacan. (2023). *Visual Tracking Nonlinear Model Predictive Control Method for Autonomous Wind Turbine Inspection.* arXiv preprint arXiv:2310.14030.
+
 
 
 
