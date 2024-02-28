@@ -11,7 +11,8 @@
 
 
 
-This repository contains the code and simulation files for the submitted paper titled "Visual Tracking Nonlinear Model Predictive Control Method for Autonomous Wind Turbine Inspection". [Link to paper]([https://releases.ubuntu.com/18.04/](https://ieeexplore.ieee.org/abstract/document/10406329?casa_token=E3nhD10-h10AAAAA:aJ4iZipbMURKRQeuiITx9BC0teooc_D5BAb71Vfi4Cw4mCCRAa4WPwd7oUVGSTe0xXLezf0lSw))  
+This repository contains the code and simulation files for the submitted paper titled "Visual Tracking Nonlinear Model Predictive Control Method for Autonomous Wind Turbine Inspection". 
+[Link to paper](https://ieeexplore.ieee.org/abstract/document/10406329?casa_token=E3nhD10-h10AAAAA:aJ4iZipbMURKRQeuiITx9BC0teooc_D5BAb71Vfi4Cw4mCCRAa4WPwd7oUVGSTe0xXLezf0lSw) 
 
 For this purpose, a time optimal path planner and a Visual tracking MPC is developed. 
 
@@ -143,8 +144,8 @@ rosrun dji_m100_trajectory GP_statemachine
 
 # Citation
 If you use this framework in your work, please cite the following paper:
-[Link to paper]([https://releases.ubuntu.com/18.04/](https://ieeexplore.ieee.org/abstract/document/10406329?casa_token=E3nhD10-h10AAAAA:aJ4iZipbMURKRQeuiITx9BC0teooc_D5BAb71Vfi4Cw4mCCRAa4WPwd7oUVGSTe0xXLezf0lSw))  
-'''
+[Link to paper](https://ieeexplore.ieee.org/abstract/document/10406329?casa_token=E3nhD10-h10AAAAA:aJ4iZipbMURKRQeuiITx9BC0teooc_D5BAb71Vfi4Cw4mCCRAa4WPwd7oUVGSTe0xXLezf0lSw) 
+```bash
 @inproceedings{amer2023visual,
   title={Visual Tracking Nonlinear Model Predictive Control Method for Autonomous Wind Turbine Inspection},
   author={Amer, Abdelhakim and Mehndiratta, Mohit and le Fevre Sejersen, Jonas and Pham, Huy Xuan and Kayacan, Erdal},
@@ -153,7 +154,7 @@ If you use this framework in your work, please cite the following paper:
   year={2023},
   organization={IEEE}
 }
-'''
+```
 
 
 
