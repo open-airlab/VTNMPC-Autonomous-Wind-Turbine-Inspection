@@ -29,62 +29,105 @@ The approach is modular, where the global plan for inspecting is provided throug
 
 
 
-# Install Ubuntu 18.04 and ROS melodic
+```
+**Installation instructions:**
 
-# Clone repository
-cd
-git clone git@github.com:open-airlab/VTNMPC-Autonomous-Wind-Turbine-Inspection.git
+1. Install [Ubuntu 18.04](https://releases.ubuntu.com/18.04/) and [ROS Melodic](http://wiki.ros.org/melodic/Installation/Ubuntu).
 
-# Download PX4 folder and place it inside the Wind-Turbine-Inspection folder
+2. Clone directory in the home folder:
+    ```bash
+    cd
+    git clone git@github.com:open-airlab/VTNMPC-Autonomous-Wind-Turbine-Inspection.git
+    ```
 
-# Copy the WTI_catkin folder inside the catkin_ws
+3. Download the PX4 folder from [here](https://drive.google.com/file/d/1BpnlglYMQI5q9lEwMCPNLGjPj5mzCoe5/view?usp=sharing) and place it inside the `Wind-Turbine-Inspection` folder.
 
-# Download MAVROS dependencies
-sudo apt-get install ros-melodic-mavros*
-sudo apt-get install xdotool
-sudo apt-get install ros-melodic-mavros-msgs
+4. Copy the folder `WTI_catkin` inside the `catkin_ws`.
 
-# Build workspace
-cd catkin_ws
-catkin_make
+5. Download MAVROS dependencies:
+    ```bash
+    sudo apt-get install ros-melodic-mavros*
+    sudo apt-get install xdotool
+    sudo apt-get install ros-mavros-mav-msgs
+    ```
 
-# Setup PX4
-cd ~/VTNMPC-Autonomous-Wind-Turbine-Inspection
-./install_dependencies_and_setup_px4_modified.sh
-# Ignore errors related to python 2.7
+6. Build workspace:
+    ```bash
+    cd catkin_ws
+    catkin_make
+    ```
 
-# Add aliases for arming and setting mode
-sudo gedit ~/.bashrc
-# Add the following lines:
-# alias arm='rosrun mavros mavsafety arm'
-# alias disarm='rosrun mavros mavsafety disarm'
-# alias offboard='rosrun mavros mavsys mode -c OFFBOARD'
+7. Setup PX4:
+    ```bash
+    cd Wind-Turbine-Inspection
+    ./install_dependencies_and_setup_px4_modified.sh
+    ```
 
-# Starting the simulation
-cd ~/VTNMPC-Autonomous-Wind-Turbine-Inspection/WTI_px4_modified/shell_scripts/
+   Note: Ignore the errors related to Python 2.7.
+
+8. Add aliases for arming the drone and setting the mode to offboard:
+    ```bash
+    sudo gedit ~/.bashrc
+    ```
+   Add the following lines:
+    ```bash
+    alias arm='rosrun mavros mavsafety arm'
+    alias disarm='rosrun mavros mavsafety disarm'
+    alias offboard='rosrun mavros mavsys mode -c OFFBOARD'
+    ```
+
+**Starting the simulation:**
+
+```bash
+cd Wind-Turbine-Inspection/WTI_px4_modified/shell_scripts/
 ./run_sitl_gazebo_withWrapper_terminator.sh matrice_100
+```
 
-# Running the Inspection Planner
-roslaunch dji_m100_trajectory m100_trajectory_v2_indoor.launch
+**Running the Inspection Planner:**
 
-# Activate traj_on
+1. Launch RQT Reconfigure:
+    ```bash
+    roslaunch dji_m100_trajectory m100_trajectory_v2_indoor.launch
+    ```
 
-# In another terminal, arm the drone and set the mode to offboard
-arm
-offboard
+2. Activate `traj_on`.
 
-# Launching the VT-NMPC
+3. In the terminal, arm the drone and set the mode to offboard:
+    ```bash
+    arm
+    offboard
+    ```
+
+   The drone will take off.
+
+**Launching the VT-NMPC:**
+
+```bash
 roslaunch quaternion_point_traj_nmpc quaternion_point_traj_nmpc.launch
+```
 
-# Adding wind to the simulation
+**Adding wind to the simulation:**
+
+```bash
 roslaunch dji_m100_trajectory windgen_recdata.launch
+```
 
-# Running the whole inspection framework
-# Bring the drone to the initial position (-3, 0, 3)
-# Run the point and normal generator node
-rosrun dji_m100_trajectory GP_statemachine
+**Running the whole inspection framework:**
 
-# Change the mode to GP (Global Planner) and tick the 'point to inspect' checkbox
+The optimal sequence of points and surface normals are created in txt file format, which the NMPC uses to generate optimal control actions. The planner is run for a default wind turbine model.
+
+To run the default planner:
+
+1. Bring the drone to the initial position (-3, 0, 3).
+
+2. Run the point and normal generator node:
+    ```bash
+    rosrun dji_m100_trajectory GP_statemachine
+    ```
+
+3. Change the mode to GP (Global Planner) and tick "point to inspect" checkbox.
+```
+
 
 
 # Citation
