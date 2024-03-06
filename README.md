@@ -29,7 +29,7 @@ The approach is modular, where the global plan for inspecting is provided throug
 
 
 
-```
+
 **Installation instructions:**
 
 1. Install [Ubuntu 18.04](https://releases.ubuntu.com/18.04/) and [ROS Melodic](http://wiki.ros.org/melodic/Installation/Ubuntu).
