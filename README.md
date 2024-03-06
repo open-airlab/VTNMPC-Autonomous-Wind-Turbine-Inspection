@@ -19,7 +19,7 @@ For this purpose, a time optimal path planner and a Visual tracking MPC is devel
 
 
 
-We provide a general inspection framework, that takes the dimensions of the wind turbine as input, and provides the optimal attitude rate and thrust command to the drone to acheive time optimal coverage. 
+We provide a general inspection framework, that takes the dimensions of the wind turbine as input, and provides the optimal attitude rate and thrust command to the drone to acheive optimal coverage. 
 
 ![My Image](abstract_vtmpc.png)
 
