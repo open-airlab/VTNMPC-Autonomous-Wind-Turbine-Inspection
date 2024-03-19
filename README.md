@@ -11,7 +11,7 @@
 
 
 
-This repository contains the code and simulation files for the submitted paper titled "Visual Tracking Nonlinear Model Predictive Control Method for Autonomous Wind Turbine Inspection". 
+This repository contains the code and simulation files for the paper titled "Visual Tracking Nonlinear Model Predictive Control Method for Autonomous Wind Turbine Inspection". 
 [Link to paper](https://ieeexplore.ieee.org/abstract/document/10406329?casa_token=E3nhD10-h10AAAAA:aJ4iZipbMURKRQeuiITx9BC0teooc_D5BAb71Vfi4Cw4mCCRAa4WPwd7oUVGSTe0xXLezf0lSw) 
 
 For this purpose, a time optimal path planner and a Visual tracking MPC is developed. 
