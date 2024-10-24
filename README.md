@@ -144,6 +144,9 @@ If you use this framework in your work, please cite the following paper:
 }
 ```
 
+## Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=open-airlab/VTNMPC-Autonomous-Wind-Turbine-Inspection&type=Date)](https://star-history.com/#open-airlab/VTNMPC-Autonomous-Wind-Turbine-Inspection&Date)
 
 
 
